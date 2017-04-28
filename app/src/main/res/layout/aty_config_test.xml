@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    >
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_color"
+        android:gravity="center_horizontal">
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/preesure"
+                    android:textSize="40sp"
+                    android:layout_marginRight="20dp"
+                    android:textColor="@color/black"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="40sp"
+                    android:textColor="@color/black"
+                    android:text="@string/voltage" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pressure_unit"
+                        android:textSize="21sp"
+                        android:textColor="@color/blue"
+                        android:layout_alignTop="@+id/tv_preesure"
+                        android:layout_toEndOf="@+id/tv_preesure" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_preesure"
+                        android:text="0.00"
+                        android:paddingLeft="10dp"
+                        android:textSize="40dp"
+                        android:textColor="@color/white"
+                        android:layout_gravity="left|center_vertical"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/voltage_unit"
+                        android:textColor="@color/blue"
+                        android:textSize="21sp"
+                        android:layout_alignTop="@+id/tv_voltage"
+                        android:layout_toEndOf="@+id/tv_voltage" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_voltage"
+                        android:text="0.0"
+                        android:paddingLeft="10dp"
+                        android:textSize="40dp"
+                        android:textColor="@color/white"
+                        android:layout_gravity="left|center_vertical"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true" />
+
+
+                </RelativeLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="40sp"
+                    android:textColor="@color/black"
+                    android:text="@string/temp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="40sp"
+                    android:textColor="@color/black"
+                    android:text="@string/distancs" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/temp_unit"
+                        android:textColor="@color/blue"
+                        android:textSize="21sp"
+                        android:layout_alignTop="@+id/tv_temp"
+                        android:layout_toEndOf="@+id/tv_temp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_temp"
+                        android:text="0"
+                        android:paddingLeft="10dp"
+                        android:textSize="40dp"
+                        android:textColor="@color/white"
+                        android:layout_gravity="left|center_vertical"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/distancs_unit"
+                        android:textColor="@color/blue"
+                        android:textSize="21sp"
+                        android:layout_alignTop="@+id/tv_releat"
+                        android:layout_toEndOf="@+id/tv_releat" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_releat"
+                        android:text="0"
+                        android:paddingLeft="10dp"
+                        android:textSize="40dp"
+                        android:textColor="@color/white"
+                        android:layout_gravity="left|center_vertical"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true" />
+
+
+                </RelativeLayout>
+            </TableRow>
+
+        </TableLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="扫一扫"
+            android:id="@+id/button"
+            android:layout_gravity="bottom" />
+
+    </LinearLayout>
+        <View
+            style="@style/divider_line_1dp"
+            />
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white"
+                android:id="@+id/tv_notifyMsg"
+                android:layout_below="@+id/tv_complete"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:paddingLeft="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:text="已测试 -- 组"
+                android:id="@+id/tv_complete"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true" />
+        </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    >
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btn_ok"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:text="@string/ok"
+                android:textSize="15sp"
+                android:textColor="@color/gray_red"
+                android:visibility="gone"
+                android:background="@drawable/button_shape_white"
+                />
+
+            <Button
+                android:id="@+id/btn_next"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:textSize="15sp"
+                android:layout_marginLeft="5dp"
+                android:visibility="gone"
+                android:textColor="@color/gray_red"
+                android:background="@drawable/button_shape_gray"
+                android:text="@string/next" />
+
+        </TableRow>
+
+
+    </TableLayout>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:id="@+id/tv_note"
+            android:visibility="gone"
+            android:background="@drawable/shake_rect_orange_tv"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="@string/low_preesure" />
+
+</LinearLayout>

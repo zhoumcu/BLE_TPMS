@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:gravity="center_horizontal">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView2" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/img_topleft"
+                            android:src="@mipmap/link_off_left1"
+                            android:layout_gravity="right"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:visibility="gone"
+                            android:layout_margin="20dp"
+                            android:id="@+id/topleft_adjust"
+                            android:background="@drawable/shake_rect_orange_tv"
+                            android:gravity="center"
+                            android:layout_gravity="bottom|right"
+                            android:textColor="@color/white"
+                            android:text="@string/adjust" />
+
+                        <include
+                            android:id="@+id/ll_topleft"
+                            layout="@layout/item_pressure_config_fl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|bottom" />
+                    </FrameLayout>
+
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/img_topright"
+                        android:src="@mipmap/link_off_right1"
+                        android:layout_weight="1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:visibility="gone"
+                            android:layout_margin="20dp"
+                            android:id="@+id/topright_adjust"
+                            android:background="@drawable/shake_rect_orange_tv"
+                            android:gravity="center"
+                            android:layout_gravity="bottom|left"
+                            android:textColor="@color/white"
+                            android:text="@string/adjust" />
+
+                        <include
+                            android:id="@+id/ll_topright"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            layout="@layout/item_pressure_config_fl"
+                            android:layout_gravity="center_horizontal|bottom" />
+                    </FrameLayout>
+                </LinearLayout>
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/bg_color">
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/img_bottomleft"
+                        android:src="@mipmap/link_off_left2"
+                        android:layout_weight="1" />
+                        <include
+                            android:id="@+id/ll_bottomleft"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            layout="@layout/item_pressure_config_fl"
+                            android:layout_gravity="left|bottom"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:layout_margin="20dp"
+                            android:id="@+id/bottomleft_adjust"
+                            android:background="@drawable/shake_rect_orange_tv"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:layout_gravity="top|right"
+                            android:textColor="@color/white"
+                            android:text="@string/adjust" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/img_bottomright"
+                        android:src="@mipmap/link_off_right2"
+                        android:layout_weight="1" />
+                        <include
+                            android:id="@+id/ll_bottomright"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            layout="@layout/item_pressure_config_fl"
+                            android:layout_gravity="right|bottom"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:layout_margin="20dp"
+                            android:visibility="gone"
+                            android:id="@+id/bottomright_adjust"
+                            android:background="@drawable/shake_rect_orange_tv"
+                            android:gravity="center"
+                            android:layout_gravity="top|left"
+                            android:textColor="@color/white"
+                            android:text="@string/adjust" />
+                    </FrameLayout>
+                </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

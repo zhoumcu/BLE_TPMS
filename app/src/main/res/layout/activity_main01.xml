@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/home_bg"
+    tools:context="com.example.sid_fu.blecentral.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:background="@mipmap/bg"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout">
+
+        <include layout="@layout/aty_titlebar"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/include">
+        </include>
+        <include layout="@layout/item_device_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/normal"
+            android:layout_margin="5dp">
+        </include>
+    </LinearLayout>
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_above="@+id/img_add"
+        android:divider="#00000000"
+        android:dividerHeight="15dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_marginTop="10dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_add"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/add"
+        android:layout_margin="5dp" />
+</RelativeLayout>

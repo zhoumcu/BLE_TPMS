@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    >
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginBottom="5dp">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/img_photo"
+                    android:src="@android:drawable/stat_sys_phone_call_on_hold"
+                    android:layout_margin="3dp"
+                    android:background="@color/bg_color" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/editText"
+                    android:layout_gravity="center_horizontal"
+                    android:hint="设备名称"
+                    android:layout_alignTop="@+id/img_photo"
+                    android:layout_alignParentEnd="true"
+                    android:layout_toEndOf="@+id/img_photo"
+                    android:layout_marginTop="5dp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ed_name"
+                    android:layout_gravity="center_horizontal"
+                    android:hint="备注"
+                    android:layout_below="@+id/editText"
+                    android:layout_toEndOf="@+id/img_photo" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="最后一次同步时间：2016-05-21 21：05：21"
+                android:id="@+id/textView3"
+                android:layout_gravity="center_horizontal"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="单位"
+                android:id="@+id/textView4"
+                android:background="@color/white"
+                android:padding="5dp"
+                android:layout_marginBottom="1dp"
+                android:textColor="@color/black" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="气压"
+                    android:id="@+id/textView5"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_margin="5dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="温度"
+                    android:id="@+id/textView6"
+                    android:layout_below="@+id/textView5"
+                    android:layout_alignParentStart="true"
+                    android:layout_margin="5dp" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="车厂建议轮胎气压"
+                android:id="@+id/textView7"
+                android:padding="5dp"
+                android:layout_marginBottom="1dp"
+                android:background="@color/white"
+                android:textColor="@color/black" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:background="@color/white"
+                android:layout_marginBottom="10dp">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="最低值"
+                        android:id="@+id/textView9"
+                        android:layout_column="3"
+                        android:layout_margin="5dp"
+                        android:textColor="#586648" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="被推荐"
+                        android:id="@+id/textView11"
+                        android:layout_column="4"
+                        android:layout_margin="5dp"
+                        android:textColor="#152774" />
+
+                    <TextView
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="最高值"
+                        android:id="@+id/textView8"
+                        android:layout_column="5"
+                        android:layout_margin="5dp"
+                        android:textColor="#e58383" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp">
+
+                    <TextView
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="前轮胎（FRP）"
+                        android:id="@+id/textView10"
+                        android:layout_column="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="185"
+                        android:id="@+id/textView14"
+                        android:layout_column="3"
+                        android:layout_margin="3dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="200"
+                        android:id="@+id/textView15"
+                        android:layout_column="4"
+                        android:layout_margin="3dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="250"
+                        android:id="@+id/textView17"
+                        android:layout_column="5"
+                        android:layout_margin="3dp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp">
+
+                    <TextView
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="后轮胎（RRP）"
+                        android:id="@+id/textView12"
+                        android:layout_column="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="185"
+                        android:id="@+id/textView16"
+                        android:layout_column="3"
+                        android:layout_margin="3dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="200"
+                        android:id="@+id/textView13"
+                        android:layout_column="4"
+                        android:layout_margin="3dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="250"
+                        android:id="@+id/textView18"
+                        android:layout_column="5"
+                        android:layout_margin="3dp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </TableRow>
+            </TableLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="车内监控灵敏度"
+                android:id="@+id/textView19"
+                android:layout_marginBottom="1dp"
+                android:background="@color/white"
+                android:padding="5dp"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dp"
+                android:background="@color/white">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="减少"
+                    android:id="@+id/radioButton"
+                    android:checked="false"
+                    android:paddingRight="5dp" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="一般"
+                    android:id="@+id/radioButton2"
+                    android:layout_gravity="center_horizontal"
+                    android:checked="false"
+                    android:paddingRight="5dp" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="增加"
+                    android:id="@+id/radioButton3"
+                    android:checked="false"
+                    android:paddingRight="5dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="添加"
+        android:id="@+id/btn_add" />
+
+</LinearLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/bg_ground"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bar"
+            android:textSize="50sp"
+            android:id="@+id/preesureunit"
+            android:layout_alignBottom="@+id/tv_preesure"
+            android:layout_toEndOf="@+id/tv_preesure" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0.0"
+            android:textSize="100sp"
+            android:textStyle="bold"
+            android:id="@+id/tv_preesure"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="150dp"
+        android:gravity="center"
+        android:background="@drawable/shake_rect_gray_tv"
+        android:layout_marginTop="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="50sp"
+            android:id="@+id/tv_temp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="℃"
+            android:textSize="40sp"
+            android:id="@+id/tempunit"
+            android:layout_alignBottom="@+id/tv_temp"
+            android:layout_toEndOf="@+id/tv_temp" />
+    </RelativeLayout>
+</LinearLayout>

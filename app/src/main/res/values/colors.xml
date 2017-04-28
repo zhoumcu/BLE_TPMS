@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ea5b24</color>
+    <color name="colorPrimaryDark">#ea5b24</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="bg_color">#55000000</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="divider_line">#000000</color>
+    <color name="theme_red">#ff6766</color>
+    <color name="red">#88ef0605</color>
+    <color name="errored">#ef0605</color>
+    <color name="blue">#2328eb</color>
+    <color name="green">#ea5b24</color>
+    <color name="gray_red">#c90f82</color>
+    <color name="divider_line_gray">#a3a3a3</color>
+    <color name="dark_gray">#747174</color>
+    <color name="dark_gray_ap">#55747174</color>
+    <color name="home_list_bg">#dfdfdf</color>
+    <color name="home_bg">#1a1c28</color>
+
+    <color name="connected">#62aa3f</color>
+    <color name="unconnected">#767676</color>
+
+    <color name="phone">#333333</color>
+    <color name="himtphone">#767676</color>
+
+    <color name="blue_night">#4a9bc8</color>
+
+    <color name="title_bg">#291822</color>
+
+    <color name="car_bg">#1f80b3</color>
+</resources>

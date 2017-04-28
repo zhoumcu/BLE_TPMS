@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    >
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:visibility="gone">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/edit_config"
+            android:background="@drawable/shake_rect_orange_tv"
+            android:gravity="center"
+            android:layout_gravity="bottom|right"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:text="校准"
+            android:layout_weight="1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:id="@+id/current_time"
+            android:background="@drawable/shake_rect_gray_tv"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="bottom|right"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:text="当前："
+            android:layout_weight="1"
+            android:visibility="gone" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:id="@+id/link_time"
+            android:gravity="center"
+            android:textSize="10sp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="bottom|right"
+            android:background="@drawable/shake_rect_gray_tv"
+            android:textColor="@color/white"
+            android:text="连接："
+            android:layout_weight="1"
+            android:visibility="gone" />
+        <!--<Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="蓝牙"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/switch1" />
+            -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="蓝牙"
+            android:textColor="@color/white"/>
+
+        <com.example.sid_fu.blecentral.widget.WiperSwitch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/switch1"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_color"
+            android:layout_weight="1">
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/img_topleft"
+                    android:src="@drawable/monitor_1"
+                    android:layout_gravity="right"
+                    />
+
+               <include
+                   android:id="@+id/ll_topleft"
+                   layout="@layout/item_pressure_config_fl"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:visibility="gone"
+                    android:layout_margin="20dp"
+                    android:id="@+id/topleft_adjust"
+                    android:background="@drawable/shake_rect_orange_tv"
+                    android:gravity="center"
+                    android:layout_gravity="bottom|right"
+                    android:textColor="@color/white"
+                    android:text="@string/adjust" />
+            </FrameLayout>
+
+
+            <View
+                style="@style/divider_line_horizontal_1dp"
+                />
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/img_topright"
+                android:src="@drawable/monitor_2"
+                android:layout_weight="1" />
+
+                <include
+                    android:id="@+id/ll_topright"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    layout="@layout/item_pressure_config_fl"
+                    android:layout_gravity="right"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:visibility="gone"
+                    android:layout_margin="20dp"
+                    android:id="@+id/topright_adjust"
+                    android:background="@drawable/shake_rect_orange_tv"
+                    android:gravity="center"
+                    android:layout_gravity="bottom|left"
+                    android:textColor="@color/white"
+                    android:text="@string/adjust" />
+            </FrameLayout>
+        </LinearLayout>
+        <View
+            style="@style/divider_line_1dp"
+            />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/bg_color"
+            android:layout_weight="1">
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/img_bottomleft"
+                android:src="@drawable/monitor_3"
+                android:layout_weight="1"
+                android:layout_gravity="right"
+                />
+                <include
+                    android:id="@+id/ll_bottomleft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    layout="@layout/item_pressure_config_fl"
+                    android:layout_gravity="left|bottom"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_margin="20dp"
+                    android:id="@+id/bottomleft_adjust"
+                    android:background="@drawable/shake_rect_orange_tv"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:layout_gravity="top|right"
+                    android:textColor="@color/white"
+                    android:text="@string/adjust" />
+            </FrameLayout>
+            <View
+                style="@style/divider_line_horizontal_1dp"
+                />
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/img_bottomright"
+                android:src="@drawable/monitor_4"
+                android:layout_weight="1" />
+                <include
+                    android:id="@+id/ll_bottomright"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    layout="@layout/item_pressure_config_fl"
+                    android:layout_gravity="right|bottom"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_margin="20dp"
+                    android:visibility="gone"
+                    android:id="@+id/bottomright_adjust"
+                    android:background="@drawable/shake_rect_orange_tv"
+                    android:gravity="center"
+                    android:layout_gravity="top|left"
+                    android:textColor="@color/white"
+                    android:text="@string/adjust" />
+            </FrameLayout>
+        </LinearLayout>
+
+</LinearLayout>

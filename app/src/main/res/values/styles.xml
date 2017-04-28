@@ -1,0 +1,211 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!--<item name="actionOverflowButtonStyle">@style/OverFlow</item>-->
+
+    </style>
+    <style name="divider_line_1dp_gray">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/divider_line_gray</item>
+    </style>
+    <style name="Anim_fade" parent="AppTheme" >
+        <!--<item name="android:windowAnimationStyle">@style/fade</item>-->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- Styles -->
+    <style name="OverFlow" parent="@android:style/Widget.Holo.ActionButton.Overflow">
+        <item name="android:src">?attr/overflow</item>
+
+    </style>
+
+    <style name="fade" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/fade_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/fade_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/fade_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/fade_out</item>
+    </style>
+
+    <style name="divider_line_1dp">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/divider_line</item>
+    </style>
+    <style name="divider_line_horizontal_1dp">
+        <item name="android:layout_width">0.1dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/divider_line_gray</item>
+    </style>
+    <style name="divider_line_1more_dp">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1.5dp</item>
+        <item name="android:background">@color/divider_line</item>
+    </style>
+    <style name="WinDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--<item name="android:background">@android:color/white</item>-->
+    </style>
+
+    <style name="line">
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+
+    <style name="AnimBottom" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_buttom_out</item>
+    </style>
+    <style name="AnimMeumBottom" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_buttom_out</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_in</item>
+    </style>
+    <style name="MyDialogStyleBottom" parent="android:Theme.Dialog">
+        <item name="android:windowAnimationStyle">@style/AnimBottom</item>
+        <item name="android:windowFrame">@null</item>
+        ;!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        ;!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">true</item>
+        ;!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        ;!-- 无标题 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        ;!-- 背景透明 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        ;!-- 模糊 -->
+    </style>
+
+    <style name="enabled_text1">
+        <item name="android:textColor">@drawable/connect_color_selector</item>
+        <item name="android:drawableLeft">@drawable/bund_selector</item>
+        <item name="android:enabled">false</item>
+    </style>
+    <style name="enabled_text2">
+        <item name="android:textColor">@drawable/color_selector</item>
+        <item name="android:drawableTop">@drawable/info_selector</item>
+        <item name="android:enabled">true</item>
+    </style>
+    <style name="enabled_text3">
+        <item name="android:textColor">@drawable/color_selector</item>
+        <item name="android:drawableTop">@drawable/bunded_selector</item>
+        <item name="android:enabled">true</item>
+    </style>
+    <style name="enabled_text4">
+        <item name="android:textColor">@drawable/color_selector</item>
+        <item name="android:drawableTop">@drawable/car_selector</item>
+        <item name="android:enabled">true</item>
+    </style>
+    <style name="enabled_text5">
+        <item name="android:textColor">@drawable/color_selector</item>
+        <item name="android:drawableTop">@drawable/delete_selector</item>
+        <item name="android:enabled">true</item>
+    </style>
+    <style name="first_text">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#333333</item>
+    </style>
+    <style name="second_text">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#767676</item>
+    </style>
+    <style name="third_text">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#2328eb</item>
+    </style>
+
+    <!-- 日间主题 -->
+    <style name="DayTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="temp_color">@color/green</item>
+        <item name="press_color">@color/phone</item>
+        <item name="time_color">@color/green</item>
+        <item name="static_color">@color/green</item>
+        <item name="backgroundleft1">@mipmap/link_off_left1</item>
+        <item name="backgroundright1">@mipmap/link_off_right1</item>
+        <item name="backgroundleft2">@mipmap/link_off_left2</item>
+        <item name="backgroundright2">@mipmap/link_off_right2</item>
+        <item name="actionOverflowButtonStyle">@style/OverFlow</item>
+        <item name="overflow">@mipmap/am_ico</item>
+        <item name="battle">@null</item>
+        <item name="setting">@mipmap/am_ico</item>
+        <item name="backicon">@mipmap/ico_back</item>
+        <item name="title_back">@color/colorPrimary</item>
+        <item name="title_color">@color/white</item>
+        <item name="press_bg">@mipmap/am_bg</item>
+    </style>
+
+    <!-- 夜间主题 -->
+    <style name="NightTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="temp_color">@color/green</item>
+        <item name="press_color">@color/blue_night</item>
+        <item name="time_color">@color/blue_night</item>
+        <item name="static_color">@color/blue_night</item>
+        <item name="backgroundleft1">@mipmap/pmlink_off_left1</item>
+        <item name="backgroundright1">@mipmap/pmlink_off_right1</item>
+        <item name="backgroundleft2">@mipmap/pmlink_off_left2</item>
+        <item name="backgroundright2">@mipmap/pmlink_off_right2</item>
+        <item name="actionOverflowButtonStyle">@style/OverFlow</item>
+        <item name="overflow">@mipmap/pm_ico</item>
+        <item name="battle">@null</item>
+        <item name="colorPrimary">@color/title_bg</item>
+        <item name="colorPrimaryDark">@color/title_bg</item>
+        <item name="android:textColor">@color/blue_night</item>
+        <item name="android:textColorPrimaryInverse">@color/blue_night</item>
+        <item name="setting">@mipmap/pm_ico</item>
+        <item name="backicon">@mipmap/pm_back</item>
+        <item name="title_color">@color/blue_night</item>
+        <item name="title_back">@android:color/transparent</item>
+        <item name="press_bg">@mipmap/pm_bg</item>
+    </style>
+
+    <style name="text_18_ffffff">
+        <item name="android:textSize">18.0dip</item>
+        <item name="android:textColor">#ffffffff</item>
+    </style>
+
+    <style name="text_16_666666">
+        <item name="android:textSize">16.0dip</item>
+        <item name="android:textColor">#ff666666</item>
+    </style>
+
+    <style name="sdw_white">
+        <item name="android:shadowColor">#7fffffff</item>
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">0.65</item>
+        <item name="android:shadowRadius">1.0</item>
+    </style>
+
+    <style name="sdw_79351b">
+        <item name="android:shadowColor">#ff79351b</item>
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">1.0</item>
+    </style>
+
+    <style name="text_15_ffffff_sdw" parent="@style/sdw_79351b">
+        <item name="android:textSize">15.0dip</item>
+        <item name="android:textColor">#ffffffff</item>
+    </style>
+
+    <style name="text_15_666666_sdw" parent="@style/sdw_white">
+        <item name="android:textSize">15.0dip</item>
+        <item name="android:textColor">#ff666666</item>
+    </style>
+
+    <style name="Dialog" parent="android:style/Theme.Dialog">
+        <item name="android:background">#00000000</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+</resources>

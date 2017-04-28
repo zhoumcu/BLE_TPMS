@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="54dp"
+    android:gravity="center_vertical"
+    android:padding="5dp">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView3"
+        android:src="@mipmap/acitionbar_logo"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="车辆管理"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:id="@+id/tv_title"
+        android:layout_weight="1"
+        android:layout_marginLeft="5dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_scan"
+        android:src="@mipmap/scan_btn"
+        android:layout_marginRight="15dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_set"
+        android:src="@mipmap/setting_btn"
+        android:layout_marginRight="5dp" />
+</LinearLayout>

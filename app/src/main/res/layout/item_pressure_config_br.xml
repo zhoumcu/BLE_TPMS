@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_topleft"
+        android:src="?attr/backgroundright2"
+        android:layout_gravity="left|top"
+        />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:id="@+id/tv_note"
+            android:visibility="gone"
+            android:background="@drawable/shake_rect_orange_tv"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="@string/low_preesure" />
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/img_battle"
+                android:src="?attr/battle"
+                android:layout_column="2" />
+
+        </TableRow>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/temp_unit"
+                android:textColor="?attr/temp_color"
+                android:textSize="11sp"
+                android:layout_alignTop="@+id/tv_temp"
+                android:layout_toEndOf="@+id/tv_temp"
+                android:id="@+id/tempunit" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_temp"
+                android:text="@string/defaulttemp"
+                android:paddingLeft="10dp"
+                android:textSize="@dimen/temp_size"
+                android:textColor="?attr/temp_color"
+                android:layout_gravity="left|center_vertical"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_column="1" />
+
+
+        </RelativeLayout>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_preesure"
+                android:text="@string/defaulttemp"
+                android:paddingLeft="10dp"
+                android:textSize="@dimen/press_size"
+                android:textColor="?attr/press_color"
+                android:layout_gravity="left|center_vertical"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                android:layout_column="1"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/unit_size"
+                android:textColor="?attr/press_color"
+                android:text="KPa"
+                android:layout_column="2"
+                android:id="@+id/press"
+                android:layout_gravity="bottom" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="BR"
+                android:textSize="@dimen/unit_size"
+                android:textColor="?attr/press_color"
+                android:layout_column="0"
+                android:visibility="gone" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/defaulttime"
+                android:textSize="@dimen/notice_size"
+                android:id="@+id/tv_releat"
+                android:textColor="?attr/time_color"
+                android:layout_alignTop="@+id/tv_preesure"
+                android:layout_toEndOf="@+id/tv_preesure"
+                android:layout_column="1"
+                android:layout_gravity="center"
+                android:layout_span="2" />
+
+        </TableRow>
+
+        <TextView
+            android:id="@+id/phone_rssi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/defaultdate"
+            android:textColor="?attr/time_color"
+            android:textSize="11sp"
+            android:layout_alignTop="@+id/tv_voltage"
+            android:layout_toEndOf="@+id/tv_voltage"
+            android:layout_column="1"
+            android:gravity="center" />
+
+    </TableLayout>
+
+
+</FrameLayout>

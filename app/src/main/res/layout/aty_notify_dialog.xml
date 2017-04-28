@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="330dp"
+    android:layout_gravity="center"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_shape"
+    >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_icon"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:layout_margin="15dp"
+        android:src="@mipmap/b_ann" />
+
+    <TextView
+        style="@style/line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="小安胎压检测系统测试提示语言，请根据具体情况点击合适按钮"
+        android:id="@+id/tv_notify"
+        android:textColor="@color/black"
+        android:padding="10dp"
+        android:layout_weight="1"
+        android:layout_margin="5dp" />
+   <View
+      style="@style/divider_line_1dp_gray"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/ln_finish"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:visibility="gone"
+            android:layout_weight="1">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="完成，进行下一个配对"
+                android:id="@+id/btn_finish"
+                android:background="@null"
+                android:drawablePadding="5dp"
+                android:drawableLeft="@mipmap/b_finish"
+                android:textColor="@color/white"
+                style="?android:attr/buttonStyleSmall" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/btn_nofinish">
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="重试"
+                android:textColor="@color/white"
+                android:background="@color/colorPrimary"
+                android:id="@+id/btn_state"
+                android:layout_weight="1"
+                />
+            <View
+                style="@style/divider_line_horizontal_1dp"/>
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="跳过"
+                android:background="@null"
+                android:id="@+id/btn_next"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/bg_ground"
+    android:padding="10dp"
+    android:background="@mipmap/g_bg"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            style="@style/line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="帐户"
+            android:textColor="@color/colorPrimary" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider_line_gray"
+            />
+
+        <LinearLayout
+            style="@style/line"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="75264546546@qq.com"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/white"
+                    android:id="@+id/tv_email" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:id="@+id/img_qcode"
+                android:visibility="gone"
+                android:src="@drawable/monitor_2"/>
+        </LinearLayout>
+
+        <TextView
+            style="@style/line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="主题切换"
+            android:textColor="@color/colorPrimary" />
+
+        <View
+            style="@style/divider_line_1dp_gray"
+            />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="白天模式/夜间模式"
+                android:textColor="@color/white"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:id="@+id/tv_changetheme"
+                android:layout_weight="1" />
+
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:padding="10dp"
+                android:id="@+id/switch2"
+                android:layout_gravity="right" />
+        </LinearLayout>
+        <TextView
+            style="@style/line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="横屏竖屏切换"
+            android:textColor="@color/colorPrimary"
+            android:visibility="gone" />
+
+        <View
+            style="@style/divider_line_1dp_gray"
+            android:visibility="gone" />
+
+        <TextView
+            style="@style/line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="竖屏"
+            android:textColor="@color/white"
+            android:id="@+id/tv_land_port"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:visibility="gone" />
+        <TextView
+            style="@style/line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="单位设定"
+            android:textColor="@color/colorPrimary" />
+
+        <View
+            style="@style/divider_line_1dp_gray"
+            />
+
+        <TextView
+            style="@style/line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Kpa"
+            android:textColor="@color/white"
+            android:id="@+id/tv_preesure"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginLeft="5dp" />
+
+        <View
+            style="@style/divider_line_1dp_gray"
+            />
+
+        <TextView
+            style="@style/line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="℃"
+            android:textColor="@color/white"
+            android:id="@+id/tv_temp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginLeft="5dp" />
+
+        <TextView
+            style="@style/line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="信息"
+            android:textColor="@color/colorPrimary" />
+
+        <View
+            style="@style/divider_line_1dp_gray"
+            />
+
+        <TextView
+            style="@style/line"
+            android:layout_width="357dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/codeVersion"
+            android:textColor="@color/white"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:layout_marginLeft="5dp" />
+
+        <TextView
+            style="@style/line"
+            android:layout_width="363dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blue"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="许可证及隐私条款"
+            android:id="@+id/access"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginLeft="5dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="登出当前帐号"
+            android:textColor="@color/white"
+            android:background="@color/colorPrimary"
+            android:id="@+id/btn_login" />
+    </LinearLayout>
+
+</ScrollView>

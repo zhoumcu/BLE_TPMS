@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:fitsSystemWindows="true"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
+
+	<View
+		android:layout_width="wrap_content"
+		android:layout_height="192dp"
+		android:background="@mipmap/s_bg1"/>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:padding="5dp">
+
+		<RelativeLayout
+			android:id="@+id/rl_1"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="18.0dip"
+			android:layout_marginRight="18.0dip"
+			android:background="@drawable/de_login_rect_white">
+
+			<RelativeLayout
+				android:id="@+id/layoutPhone"
+				android:layout_width="fill_parent"
+				android:layout_height="45.0dip">
+
+				<EditText
+					android:id="@+id/pwd"
+					android:layout_width="wrap_content"
+					android:layout_height="fill_parent"
+					android:background="@null"
+					android:hint="输入密码"
+					android:inputType="number"
+					android:maxLength="11"
+					android:paddingLeft="15.0dip"
+					android:singleLine="true"
+					android:textColor="#ff111111"
+					android:textColorHint="#ffaaaaaa"
+					android:textSize="16.0sp"
+					android:layout_alignParentTop="false"
+					android:layout_alignParentEnd="true"
+					android:layout_alignParentStart="true" />
+
+			</RelativeLayout>
+
+			<RelativeLayout
+				android:layout_width="fill_parent"
+				android:layout_height="45.0dip"
+				android:layout_alignParentStart="true"
+				android:layout_below="@+id/layoutPhone">
+
+				<EditText
+					android:id="@+id/repwd"
+					android:layout_width="fill_parent"
+					android:layout_height="fill_parent"
+					android:background="@null"
+					android:hint="再次输入密码"
+					android:inputType="number"
+					android:maxLength="6"
+					android:paddingLeft="15.0dip"
+					android:singleLine="true"
+					android:textColor="#ff111111"
+					android:textColorHint="#ffaaaaaa"
+					android:textSize="16.0sp" />
+
+				<ImageView
+					android:layout_width="fill_parent"
+					android:layout_height="0.5dip"
+					android:background="#ffdddddd" />
+
+			</RelativeLayout>
+		</RelativeLayout>
+
+		<Button
+			android:id="@+id/btnClose"
+			android:layout_width="20.0dip"
+			android:layout_height="20.0dip"
+			android:layout_alignParentBottom="true"
+			android:layout_centerHorizontal="true"
+			android:layout_marginBottom="40.0dip"
+			android:background="@drawable/ue_login_close"
+			android:visibility="gone" />
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceSmall"
+			android:id="@+id/tv_load"
+			android:layout_margin="10dp"
+			android:layout_above="@+id/btnClose"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentEnd="true"
+			android:layout_alignParentLeft="true"
+			android:layout_alignParentStart="true"
+			android:visibility="gone" />
+
+	</RelativeLayout>
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="192dp"
+		android:background="@mipmap/s_bg2"
+		android:layout_weight="1">
+
+		<Button
+			android:id="@+id/btnSure"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/rl_1"
+			android:background="@color/colorPrimary"
+			android:clickable="true"
+			android:enabled="false"
+			android:text="提交"
+			android:textColor="#ffffffff"
+			android:textSize="18.0sp"
+			android:layout_gravity="center_vertical"
+			android:layout_margin="20dp" />
+	</LinearLayout>
+</LinearLayout>

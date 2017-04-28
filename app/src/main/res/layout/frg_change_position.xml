@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    >
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:visibility="gone">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/edit_config"
+            android:background="@drawable/shake_rect_orange_tv"
+            android:gravity="center"
+            android:layout_gravity="bottom|right"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:text="校准"
+            android:layout_weight="1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:id="@+id/current_time"
+            android:background="@drawable/shake_rect_gray_tv"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="bottom|right"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:text="当前："
+            android:layout_weight="1"
+            android:visibility="gone" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:id="@+id/link_time"
+            android:gravity="center"
+            android:textSize="10sp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="bottom|right"
+            android:background="@drawable/shake_rect_gray_tv"
+            android:textColor="@color/white"
+            android:text="连接："
+            android:layout_weight="1"
+            android:visibility="gone" />
+        <!--<Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="蓝牙"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/switch1" />
+            -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="蓝牙"
+            android:textColor="@color/white"/>
+
+        <com.example.sid_fu.blecentral.widget.WiperSwitch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/switch1"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_color"
+            android:layout_weight="1">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="左前"
+                    android:textColor="@color/white"
+                    android:id="@+id/img_topleft"
+                    android:layout_gravity="center_horizontal|bottom" />
+                <!--<include-->
+                   <!--android:id="@+id/ll_topleft"-->
+                   <!--layout="@layout/item_pressure_config"-->
+                   <!--android:layout_width="wrap_content"-->
+                   <!--android:layout_height="wrap_content" />-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:visibility="visible"
+                    android:id="@+id/topleft_adjust"
+                    android:background="@mipmap/b_btn"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"
+                    android:text="@string/adjust" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="右前"
+                    android:textColor="@color/white"
+                    android:id="@+id/img_topright"
+                    android:layout_gravity="center_horizontal|bottom" />
+                <!--<include-->
+                    <!--android:id="@+id/ll_topright"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--layout="@layout/item_pressure_config"-->
+                    <!--android:layout_gravity="right"-->
+                    <!--/>-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:visibility="visible"
+                    android:id="@+id/topright_adjust"
+                    android:background="@mipmap/b_btn"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"
+                    android:text="@string/adjust" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/bg_color"
+            android:layout_weight="1">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <!--<include-->
+                    <!--android:id="@+id/ll_bottomleft"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--layout="@layout/item_pressure_config"-->
+                    <!--android:layout_gravity="left|bottom"-->
+                    <!--/>-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="左后"
+                    android:textColor="@color/white"
+                    android:id="@+id/img_bottomleft"
+                    android:layout_gravity="center_horizontal|bottom" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:id="@+id/bottomleft_adjust"
+                    android:background="@mipmap/b_btn"
+                    android:gravity="center"
+                    android:visibility="visible"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"
+                    android:text="@string/adjust" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+                <!--<include-->
+                    <!--android:id="@+id/ll_bottomright"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--layout="@layout/item_pressure_config"-->
+                    <!--android:layout_gravity="right|bottom"-->
+                    <!--/>-->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="右后"
+                    android:textColor="@color/white"
+                    android:id="@+id/img_bottomright"
+                    android:layout_gravity="center_horizontal|bottom" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:visibility="visible"
+                    android:id="@+id/bottomright_adjust"
+                    android:background="@mipmap/b_btn"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"
+                    android:text="@string/adjust" />
+            </LinearLayout>
+        </LinearLayout>
+
+</LinearLayout>

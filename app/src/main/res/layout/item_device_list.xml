@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:id="@+id/bg_ground"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="93dp"
+        android:padding="10dp"
+        android:id="@+id/btn_rl">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/img_icon"
+            android:background="@color/white"
+            android:src="@mipmap/car_bs"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/btn_connect" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="法拉利"
+            style="@style/first_text"
+            android:id="@+id/tv_title"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/img_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="小安产"
+            style="@style/second_text"
+            android:id="@+id/tv_content"
+            android:layout_alignBottom="@+id/img_icon"
+            android:layout_alignStart="@+id/tv_title" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="当前"
+            android:id="@+id/tv_current"
+            android:background="@color/green"
+            android:textColor="@color/white"
+            android:padding="2dp"
+            android:layout_marginLeft="5dp"
+            android:layout_alignBottom="@+id/tv_title"
+            android:layout_toStartOf="@+id/img_ecode"
+            android:layout_marginRight="5dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="默认"
+            android:background="@color/blue"
+            android:textColor="@color/white"
+            android:id="@+id/tv_normal"
+            android:padding="2dp"
+            android:layout_marginLeft="5dp"
+            android:layout_alignTop="@+id/tv_current"
+            android:layout_toStartOf="@+id/tv_current" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已连接"
+            android:id="@+id/btn_connect"
+            android:focusable="false"
+            android:layout_alignParentTop="true"
+            android:visibility="gone"
+            android:layout_alignParentEnd="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/img_ecode"
+            android:src="@mipmap/ecode"
+            android:visibility="gone"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@+id/tv_state" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="已连接"
+            android:id="@+id/tv_state"
+            style="@style/enabled_text1"
+            android:layout_marginLeft="5dp"
+            android:layout_alignTop="@+id/tv_current"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="小安产"
+            style="@style/second_text"
+            android:id="@+id/tv_cartype"
+            android:visibility="gone"
+            android:layout_alignTop="@+id/tv_content"
+            android:layout_toEndOf="@+id/tv_content"
+            android:layout_marginLeft="10dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/arrow"
+            android:src="@mipmap/arrow"
+            android:layout_marginEnd="22dp"
+            android:layout_alignBottom="@+id/tv_content"
+            android:layout_alignEnd="@+id/tv_state"
+            android:layout_marginBottom="5dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="2dp"
+        android:background="@color/home_list_bg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="详情"
+            style="@style/enabled_text2"
+            android:gravity="center"
+            android:id="@+id/btn_bund" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="授权"
+            style="@style/enabled_text3"
+            android:gravity="center"
+            android:id="@+id/btn_normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="设为默认"
+            style="@style/enabled_text4"
+            android:gravity="center"
+            android:id="@+id/btn_details" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="授权"
+            android:gravity="center"
+            android:visibility="gone"
+            android:drawableTop="@android:drawable/ic_menu_gallery"
+            android:id="@+id/btn_code" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="删除"
+            style="@style/enabled_text5"
+            android:gravity="center"
+            android:id="@+id/btn_delete" />
+    </LinearLayout>
+</LinearLayout>

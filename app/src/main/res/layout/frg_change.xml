@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    >
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_color"
+            android:layout_weight="1">
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/monitor_1"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/img_topleft"
+                    android:layout_gravity="right"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:visibility="gone"
+                    android:layout_margin="20dp"
+                    android:id="@+id/topleft_adjust"
+                    android:background="@drawable/shake_rect_orange_tv"
+                    android:gravity="center"
+                    android:layout_gravity="bottom|right"
+                    android:textColor="@color/white"
+                    android:text="@string/adjust" />
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/pb_left_from"
+                    android:layout_gravity="center|bottom"
+                    android:visibility="gone"
+                    android:indeterminate="false" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="--"
+                    android:textColor="@color/white"
+                    android:id="@+id/tv_note_left_from"
+                    android:layout_gravity="center_horizontal|top" />
+
+                <include
+                    android:id="@+id/ll_topleft"
+                    layout="@layout/item_device_change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"/>
+            </FrameLayout>
+
+
+            <View
+                style="@style/divider_line_horizontal_1dp"
+                />
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/monitor_2">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/img_topright"
+                android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:visibility="gone"
+                    android:layout_margin="20dp"
+                    android:id="@+id/topright_adjust"
+                    android:background="@drawable/shake_rect_orange_tv"
+                    android:gravity="center"
+                    android:layout_gravity="bottom|left"
+                    android:textColor="@color/white"
+                    android:text="@string/adjust" />
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/pb_right_from"
+                    android:layout_gravity="center|bottom"
+                    android:indeterminate="false"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="--"
+                    android:textColor="@color/white"
+                    android:id="@+id/tv_note_right_from"
+                    android:layout_gravity="center_horizontal|top" />
+
+                <include
+                    android:id="@+id/ll_topright"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    layout="@layout/item_device_change"
+                    android:layout_gravity="center"
+                    />
+            </FrameLayout>
+        </LinearLayout>
+        <View
+            style="@style/divider_line_1dp"
+            />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/bg_color"
+            android:layout_weight="1">
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/monitor_3"
+                android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/img_bottomleft"
+                android:layout_weight="1"
+                android:layout_gravity="right"
+                />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_margin="20dp"
+                    android:id="@+id/bottomleft_adjust"
+                    android:background="@drawable/shake_rect_orange_tv"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:layout_gravity="top|right"
+                    android:textColor="@color/white"
+                    android:text="@string/adjust" />
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/pb_left_back"
+                    android:layout_gravity="center|bottom"
+                    android:indeterminate="false"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="--"
+                    android:textColor="@color/white"
+                    android:id="@+id/tv_note_left_back"
+                    android:layout_gravity="center_horizontal|top" />
+
+                <include
+                    android:id="@+id/ll_bottomleft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    layout="@layout/item_device_change"
+                    android:layout_gravity="center"
+                    />
+            </FrameLayout>
+            <View
+                style="@style/divider_line_horizontal_1dp"
+                />
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/monitor_4"
+                android:layout_weight="1">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/img_bottomright"
+                android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_margin="20dp"
+                    android:visibility="gone"
+                    android:id="@+id/bottomright_adjust"
+                    android:background="@drawable/shake_rect_orange_tv"
+                    android:gravity="center"
+                    android:layout_gravity="top|left"
+                    android:textColor="@color/white"
+                    android:text="@string/adjust" />
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/pb_right_back"
+                    android:layout_gravity="center|bottom"
+                    android:indeterminate="false"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="--"
+                    android:textColor="@color/white"
+                    android:id="@+id/tv_note_right_back"
+                    android:layout_gravity="center_horizontal|top" />
+
+                <include
+                    android:id="@+id/ll_bottomright"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    layout="@layout/item_device_change"
+                    android:layout_gravity="center"
+                    />
+            </FrameLayout>
+        </LinearLayout>
+
+</LinearLayout>

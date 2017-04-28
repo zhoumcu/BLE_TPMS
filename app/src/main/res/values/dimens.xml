@@ -1,0 +1,11 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">5dp</dimen>
+    <dimen name="activity_vertical_margin">5dp</dimen>
+    <dimen name="title_bar_height">48sp</dimen>
+    <dimen name="press_size_kpa">18sp</dimen>
+    <dimen name="press_size">24sp</dimen>
+    <dimen name="temp_size">36sp</dimen>
+    <dimen name="unit_size">20sp</dimen>
+    <dimen name="notice_size">16sp</dimen>
+</resources>

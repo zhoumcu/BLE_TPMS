@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.sid_fu.blecentral">
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="andorid.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.VIBRATE">
+    </uses-permission>
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <!--权限-->
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:name=".App"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:screenOrientation="portrait"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ui.activity.SplashActivity"
+            android:label="@string/app_name"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.ChoiseModelActivity"
+            android:theme="@style/AppTheme"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:label="配置信息">
+
+        </activity>
+        <activity android:name=".talent.victon.activity.MainForServiceActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".activity.ViewPagerDemoActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen"
+            >
+        </activity>
+        <activity android:name=".ui.activity.HomeActivity"
+            android:theme="@style/Anim_fade"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop">
+
+        </activity>
+        <activity android:name=".activity.LoginActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+
+        </activity>
+        <activity android:name=".activity.MainFrameForStartServiceActivity"
+            android:uiOptions="splitActionBarWhenNarrow"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"
+            android:theme="@style/DayTheme"
+            android:label="实时数据">
+        </activity>
+        <service android:name=".BluetoothLeService" android:enabled="true"/>
+        <service android:name=".BluetoothLeStartService" android:enabled="true">
+            <intent-filter android:priority="1000" >
+                <action android:name="com.dbjtech.myservice" />
+            </intent-filter>
+        </service>
+        <service android:name=".talent.victon.BluetoothLeTalentStartService" android:enabled="true">
+            <intent-filter android:priority="1000" >
+                <action android:name="com.dbjtech.myservice" />
+            </intent-filter>
+        </service>
+        <receiver android:name=".BootReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="com.dbjtech.waiqin.destroy" /><!--这个就是自定义的action-->
+            </intent-filter>
+        </receiver>
+        <service android:name=".PushService"
+            android:process=":push"/>
+        <receiver android:name=".NotificationReceiver"
+            android:process=":push"
+        />
+        <receiver android:name=".ShowNotificationReceiver"
+            android:process=":push"
+            />
+        <service android:name=".MusicService" android:enabled="true"/>
+        <activity android:name=".activity.ConfigDevice"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:label="蓝牙配对">
+        </activity>
+        <activity android:name=".talent.victon.activity.ConfigTablentDevice"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:label="蓝牙配对">
+        </activity>
+        <activity android:name=".MainActivity_3"
+            android:label="实时数据"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            >
+
+        </activity>
+        <activity android:name=".ui.activity.BarCodeTestActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:label="二维码详情">
+
+        </activity>
+        <activity android:name=".activity.PrivateActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:label="隐私条款及用户使用协议">
+
+        </activity>
+
+        <activity
+            android:name="com.zxing.activity.CaptureActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:label="二维码扫描"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+        <activity android:name=".ui.activity.PersonSetting"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:label="综合设置">
+
+        </activity>
+        <activity android:name=".widget.PictureView"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.Dialog"
+            android:label="二维码详情">
+
+        </activity>
+        <activity android:name=".BundBlueActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:label="更换蓝牙">
+
+        </activity>
+        <activity android:name=".activity.AddDeviceActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:label="添加车辆">
+
+        </activity>
+        <activity android:name=".SystemDialog"
+            android:launchMode="singleInstance"
+            android:theme="@android:style/Theme.Dialog"
+            android:label="系统提示">
+
+        </activity>
+        <activity android:name=".ChangeDevicePosition"
+            android:label="轮胎转位"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            >
+
+        </activity>
+        <activity android:name=".UnBundBlueActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:label="解绑/绑定">
+        </activity>
+        <activity android:name=".activity.DeviceDetailActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:label="详情">
+        </activity>
+
+        <activity android:name=".NotifyDialog"
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar"
+            android:launchMode="singleInstance"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:label="系统提示">
+
+        </activity>
+        <activity android:name=".activity.CarListViewActivity"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:label="选择品牌">
+
+        </activity>
+        <activity android:name=".activity.CarSeriesListViewActivity"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:label="选择系列">
+
+        </activity>
+        <activity android:name=".activity.CarTypeListViewActivity"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:label="选择车型">
+
+        </activity>
+        <activity android:name=".activity.CarInfoDetailActivity"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:label="车辆信息">
+
+        </activity>
+        <activity android:name=".activity.CarLunTaiTypeActivity"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:label="选择轮胎型号">
+
+        </activity>
+        <activity android:name=".activity.RegisterActivity"
+            android:theme="@style/AppTheme"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:label="注册">
+
+        </activity>
+        <activity android:name=".activity.RegisterNextActivity"
+            android:theme="@style/AppTheme"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:label="设置密码">
+
+        </activity>
+        <activity android:name=".talent.victon.activity.PersonTabletSetting"
+            android:theme="@style/AppTheme"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:label="系统设置">
+
+        </activity>
+        <meta-data android:value="5790417d67e58e2772002f04"
+            android:name="UMENG_APPKEY">
+
+        </meta-data>
+        <meta-data android:value="vilton_port" android:name="UMENG_CHANNEL"/>
+        <meta-data
+            android:name="UMENG_MESSAGE_SECRET"
+            android:value="4724869ee3002f210bb30ba08fcc9931" >
+        </meta-data>
+    </application>
+
+</manifest>

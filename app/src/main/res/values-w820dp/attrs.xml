@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 自定义属性 -->
+    <attr name="temp_color" format="color" />
+    <attr name="press_color" format="color" />
+    <attr name="time_color" format="color" />
+    <attr name="static_color" format="color" />
+    <attr name="backgroundleft1" format = "reference"/>
+    <attr name="backgroundright1" format = "reference"/>
+    <attr name="backgroundleft2" format = "reference"/>
+    <attr name="backgroundright2" format = "reference"/>
+    <attr name="press_bg" format = "reference"/>
+    <attr name="overflow" format = "reference"/>
+    <attr name="battle" format = "reference"/>
+    <attr name="backicon" format = "reference"/>
+    <attr name="setting" format = "reference"/>
+    <attr name="title_back" format = "reference"/>
+
+    <attr name="title_color" format="color" />
+</resources>
