@@ -10,7 +10,7 @@
     <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="93dp"
+        android:layout_height="80dp"
         android:padding="10dp"
         android:id="@+id/btn_rl">
 
@@ -22,52 +22,6 @@
             android:src="@mipmap/car_bs"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/btn_connect" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="法拉利"
-            style="@style/first_text"
-            android:id="@+id/tv_title"
-            android:layout_marginLeft="10dp"
-            android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/img_icon" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="小安产"
-            style="@style/second_text"
-            android:id="@+id/tv_content"
-            android:layout_alignBottom="@+id/img_icon"
-            android:layout_alignStart="@+id/tv_title" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="当前"
-            android:id="@+id/tv_current"
-            android:background="@color/green"
-            android:textColor="@color/white"
-            android:padding="2dp"
-            android:layout_marginLeft="5dp"
-            android:layout_alignBottom="@+id/tv_title"
-            android:layout_toStartOf="@+id/img_ecode"
-            android:layout_marginRight="5dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="默认"
-            android:background="@color/blue"
-            android:textColor="@color/white"
-            android:id="@+id/tv_normal"
-            android:padding="2dp"
-            android:layout_marginLeft="5dp"
-            android:layout_alignTop="@+id/tv_current"
-            android:layout_toStartOf="@+id/tv_current" />
 
         <Button
             android:layout_width="wrap_content"
@@ -91,17 +45,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="已连接"
-            android:id="@+id/tv_state"
-            style="@style/enabled_text1"
-            android:layout_marginLeft="5dp"
-            android:layout_alignTop="@+id/tv_current"
-            android:layout_alignParentEnd="true" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="小安产"
             style="@style/second_text"
             android:id="@+id/tv_cartype"
@@ -110,15 +53,73 @@
             android:layout_toEndOf="@+id/tv_content"
             android:layout_marginLeft="10dp" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="当前"
+            android:id="@+id/tv_current"
+            android:background="@color/green"
+            android:textColor="@color/white"
+            android:padding="2dp"
+            android:layout_marginLeft="53dp"
+            android:layout_marginStart="18dp"
+            android:layout_alignBaseline="@+id/tv_normal"
+            android:layout_alignBottom="@+id/tv_normal"
+            android:layout_toEndOf="@+id/tv_normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="法拉利"
+            style="@style/first_text"
+            android:id="@+id/tv_title"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/img_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="已连接"
+            android:id="@+id/tv_state"
+            style="@style/enabled_text1"
+            android:layout_marginLeft="53dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/arrow"
             android:src="@mipmap/arrow"
-            android:layout_marginEnd="22dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="默认"
+            android:background="@color/blue"
+            android:textColor="@color/white"
+            android:id="@+id/tv_normal"
+            android:padding="2dp"
+            android:layout_marginLeft="5dp"
             android:layout_alignBottom="@+id/tv_content"
-            android:layout_alignEnd="@+id/tv_state"
-            android:layout_marginBottom="5dp" />
+            android:layout_toStartOf="@+id/tv_state" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="小安产"
+            style="@style/second_text"
+            android:id="@+id/tv_content"
+            android:layout_alignBottom="@+id/img_icon"
+            android:layout_alignStart="@+id/tv_title" />
     </RelativeLayout>
 
     <LinearLayout

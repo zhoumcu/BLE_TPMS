@@ -75,7 +75,7 @@
         </activity>
         <activity android:name=".activity.MainFrameForStartServiceActivity"
             android:uiOptions="splitActionBarWhenNarrow"
-            android:configChanges="keyboardHidden|orientation"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="sensor"
             android:launchMode="singleTask"
             android:theme="@style/DayTheme"

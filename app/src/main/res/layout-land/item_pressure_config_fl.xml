@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     >
     <ImageView
         android:layout_width="wrap_content"
@@ -12,8 +12,8 @@
         android:background="?attr/backgroundleft1"
         android:layout_gravity="left|top"
         />
-
     <TableRow
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -26,76 +26,78 @@
             android:visibility="gone" />
     </TableRow>
     <LinearLayout
-            android:layout_gravity="top"
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
+        android:layout_gravity="top"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_marginRight="20dp"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <RelativeLayout
-                android:layout_marginRight="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tv_preesure"
-                    android:text="@string/defaulttemp"
-                    android:paddingLeft="10dp"
-                    android:textSize="@dimen/press_size"
-                    android:textColor="?attr/press_color"
-                    android:layout_gravity="left|center_vertical"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_column="1"
-                    android:gravity="center" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/unit_size"
-                    android:textColor="?attr/press_color"
-                    android:text="KPa"
-                    android:layout_column="2"
-                    android:id="@+id/press"
-                    android:layout_alignParentTop="true"
-                    android:layout_toEndOf="@+id/tv_preesure" />
-            </RelativeLayout>
-            <RelativeLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/tv_preesure"
+                android:text="@string/defaulttemp"
+                android:paddingLeft="10dp"
+                android:textSize="@dimen/press_size"
+                android:textColor="?attr/press_color"
+                android:layout_gravity="left|center_vertical"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
                 android:layout_column="1"
-                android:gravity="center">
+                android:gravity="center" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/temp_unit"
-                    android:textColor="?attr/temp_color"
-                    android:textSize="11sp"
-                    android:layout_alignTop="@+id/tv_temp"
-                    android:layout_toEndOf="@+id/tv_temp"
-                    android:id="@+id/tempunit" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/unit_size"
+                android:textColor="?attr/press_color"
+                android:text="KPa"
+                android:layout_column="2"
+                android:id="@+id/press"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/tv_preesure" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_gravity="center">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tv_temp"
-                    android:text="@string/defaulttemp"
-                    android:paddingLeft="10dp"
-                    android:textSize="@dimen/temp_size"
-                    android:textColor="?attr/temp_color"
-                    android:layout_gravity="left|center_vertical"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_column="1" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/temp_unit"
+                android:textColor="?attr/temp_color"
+                android:textSize="11sp"
+                android:layout_alignTop="@+id/tv_temp"
+                android:layout_toEndOf="@+id/tv_temp"
+                android:id="@+id/tempunit" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_temp"
+                android:text="@string/defaulttemp"
+                android:paddingLeft="10dp"
+                android:textSize="@dimen/temp_size"
+                android:textColor="?attr/temp_color"
+                android:layout_gravity="left|center_vertical"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_column="1" />
 
 
-            </RelativeLayout>
-        </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_gravity="bottom"
         android:gravity="center"
+        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView

@@ -30,7 +30,7 @@
                     layout="@layout/item_pressure_config_fl"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="left|top" />
+                    android:layout_gravity="center" />
             </FrameLayout>
 
 
@@ -47,7 +47,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     layout="@layout/item_pressure_config_fr"
-                    android:layout_gravity="right" />
+                    android:layout_gravity="center" />
+
             </FrameLayout>
         </LinearLayout>
 
@@ -70,6 +71,7 @@
                     android:id="@+id/ll_bottomleft"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
                     layout="@layout/item_pressure_config_bl"
                     android:layout_gravity="left|bottom"
                     />
@@ -88,6 +90,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     layout="@layout/item_pressure_config_br"
+                    android:layout_marginBottom="10dp"
                     android:layout_gravity="right|bottom"
                     />
             </FrameLayout>

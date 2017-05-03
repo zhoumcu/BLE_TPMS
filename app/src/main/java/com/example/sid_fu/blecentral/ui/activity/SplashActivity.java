@@ -46,7 +46,7 @@ public class SplashActivity extends BaseFragmentActivity {
     }
 
     private void initActivity() {
-        boolean firstTimeUse = SharedPreferences.getInstance().getBoolean(Constants.FIRST_CONFIG, false);
+        boolean firstTimeUse = SharedPreferences.getInstance().getBoolean(Constants.IS_LOGIN, false);
         if (firstTimeUse) {
             this.goActivity(HomeActivity.class,null);
             finish();

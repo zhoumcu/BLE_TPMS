@@ -47,6 +47,7 @@ public class Constants {
     public static final String HIGH_PRESS = "high_press";
     public static final String HIGH_TEMP = "high_temp";
     public static final String LoW_PRESS = "low_press";
+    public static final String IS_LOGIN = "is_login";
 
     public static float getLowPressValue(){
         return Float.valueOf(SharedPreferences.getInstance().getString(Constants.LoW_PRESS,"1.8"));

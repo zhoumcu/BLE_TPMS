@@ -30,7 +30,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.example.sid_fu.blecentral.App;
@@ -87,7 +87,7 @@ public class MainFrameForStartServiceActivity extends BaseActionBarActivity impl
     public int deviceId;
     private int scanCount = 4;
     private PopupMeumWindow menuWindow;
-    public LinearLayout background;
+    public FrameLayout background;
     public boolean isQuiting;
 
     @Override
@@ -130,8 +130,7 @@ public class MainFrameForStartServiceActivity extends BaseActionBarActivity impl
     }
 
     private void initUI() {
-
-        background = (LinearLayout)findViewById(R.id.bg_ground);
+        background = (FrameLayout)findViewById(R.id.bg_ground);
         try{
             findViewById(R.id.back).setOnClickListener(this);
             findViewById(R.id.img_set).setOnClickListener(this);
@@ -166,10 +165,14 @@ public class MainFrameForStartServiceActivity extends BaseActionBarActivity impl
         super.onConfigurationChanged(newConfig);
         if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
             // 监听横屏
-            //setContentView(R.layout.de_activity_main);
+            setContentView(R.layout.de_activity_main);
+            initUI();
+            addFragment(R.id.fragment_container,new MainPagerFragment());
         } else if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             // 监听竖屏
-            //setContentView(R.layout.de_activity_main);
+            setContentView(R.layout.de_activity_main);
+            initUI();
+            addFragment(R.id.fragment_container,new MainPagerFragment());
         }
     }
 

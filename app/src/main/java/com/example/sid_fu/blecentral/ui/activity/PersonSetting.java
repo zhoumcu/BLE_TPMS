@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.example.sid_fu.blecentral.App;
 import com.example.sid_fu.blecentral.R;
 import com.example.sid_fu.blecentral.activity.LoginActivity;
 import com.example.sid_fu.blecentral.activity.PrivateActivity;
@@ -66,7 +67,7 @@ public class PersonSetting extends BaseActionBarActivity implements View.OnClick
         /*显示App icon左侧的back键*/
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-
+        App.getInstance().addActivity(this);
     }
 
     private void initUI() {
@@ -165,7 +166,8 @@ public class PersonSetting extends BaseActionBarActivity implements View.OnClick
         Intent intent = new Intent();
         intent.setClass(PersonSetting.this, LoginActivity.class);
         startActivity(intent);
-        finish();
+        SharedPreferences.getInstance().putBoolean(Constants.IS_LOGIN, false);
+        App.getInstance().exit();
     }
 
     @Override

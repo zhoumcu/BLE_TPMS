@@ -219,6 +219,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
         Intent intent = new Intent();
         intent.setClass(HomeActivity.this, PersonSetting.class);
         startActivity(intent);
+        App.getInstance().addActivity(this);
 //        ToastUtil.show("设置");
     }
 

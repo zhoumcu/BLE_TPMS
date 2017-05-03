@@ -105,6 +105,7 @@ public class LoginActivity extends BaseActivity {
                 loadingDialog.dismiss();
                 ToastUtil.show("登录成功");
                 SharedPreferences.getInstance().putString("telephone",phone.getText().toString());
+                SharedPreferences.getInstance().putBoolean(Constants.IS_LOGIN, true);
                 boolean firstTimeUse = SharedPreferences.getInstance().getBoolean(Constants.FIRST_CONFIG, false);
                 if(firstTimeUse) {
                     //initGuideGallery();

@@ -70,6 +70,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     layout="@layout/item_pressure_config_fl"
+                    android:layout_marginBottom = "20dp"
                     android:layout_gravity="left|bottom"
                     />
             </FrameLayout>
@@ -86,6 +87,7 @@
                     android:id="@+id/ll_bottomright"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom = "20dp"
                     layout="@layout/item_pressure_config_fl"
                     android:layout_gravity="right|bottom"
                     />

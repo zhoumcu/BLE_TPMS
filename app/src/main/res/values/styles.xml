@@ -146,7 +146,7 @@
         <item name="battle">@null</item>
         <item name="setting">@mipmap/am_ico</item>
         <item name="backicon">@mipmap/ico_back</item>
-        <item name="title_back">@color/colorPrimary</item>
+        <item name="title_back">@android:color/transparent</item>
         <item name="title_color">@color/white</item>
         <item name="press_bg">@drawable/am_bg</item>
     </style>
