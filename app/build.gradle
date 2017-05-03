@@ -1,7 +1,15 @@
 apply plugin: 'com.android.application'
-
+def releaseTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
 android {
     signingConfigs {
+        release {
+            keyAlias 'zhou'
+            keyPassword '080502101'
+            storeFile file('F:/zhou/androids.jks')
+            storePassword '080502101'
+        }
     }
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
@@ -14,8 +22,24 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            debuggable true
+            minifyEnabled false //启用Proguard
+            shrinkResources false //是否清理无用资源,依赖于minifyEnabled
+            zipAlignEnabled true //是否启用zipAlign压缩
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def outputFile = output.outputFile
+            if (variant.buildType.name.equals('release')) {
+                def fileName = "蓝牙TPMS${defaultConfig.versionName}_${releaseTime()}_release.apk"
+                output.outputFile = new File(outputFile.parent, fileName)
+            }else if(variant.buildType.name.equals('debug')){
+                def fileName = "蓝牙TPMS${defaultConfig.versionName}_${releaseTime()}_debug.apk"
+                output.outputFile = new File(outputFile.parent, fileName)
+            }
         }
     }
 }

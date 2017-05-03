@@ -14,6 +14,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -72,6 +73,10 @@ public abstract class BaseFragment extends Fragment{
     private DecimalFormat df;
     private FragmentActivity context;
     private long vibratorTime = 1500;
+    private FrameLayout topleftF;
+    private FrameLayout toprightF;
+    private FrameLayout bottomleftF;
+    private FrameLayout bottomrightF;
 //    private Map<View,int[]> recycleViews = new HashMap<>();
 
     protected abstract void initData();
@@ -92,6 +97,7 @@ public abstract class BaseFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frg_pressure, container, false);
+        //DimenUtil.changeViewSize(container,DimenUtil.getScreenWidth(),DimenUtil.getScreenHeight());
         initConfig();
         context = getActivity();
         return view;
@@ -156,6 +162,12 @@ public abstract class BaseFragment extends Fragment{
     };
     private void initUI() {
         if(context.isFinishing()) return;
+
+        topleftF = (FrameLayout) getView().findViewById(R.id.topleft);
+        toprightF = (FrameLayout) getView().findViewById(R.id.topright);
+        bottomleftF = (FrameLayout) getView().findViewById(R.id.bottomleft);
+        bottomrightF = (FrameLayout) getView().findViewById(R.id.bottomright);
+
         topleft_preesure = (TextView) getView().findViewById(R.id.ll_topleft).findViewById(R.id.tv_preesure);
         topleft_temp = (TextView) getView().findViewById(R.id.ll_topleft).findViewById(R.id.tv_temp);
         topleft_note = (TextView) getView().findViewById(R.id.ll_topleft).findViewById(R.id.tv_note);
@@ -262,7 +274,7 @@ public abstract class BaseFragment extends Fragment{
         if(context.isFinishing()) return;
         switch (state) {
             case 1001:
-                imgTopleft.setImageDrawable(getResources().getDrawable(R.mipmap.link_off_left1));
+                topleftF.setBackground(getResources().getDrawable(R.drawable.day_bg_normal_selector));
                 topleft_voltage.setImageDrawable(null);
                 topleft_preesure.setText(getActivity().getString(R.string.defaulttemp));
                 topleft_temp.setText(getActivity().getString(R.string.defaulttemp));
@@ -271,7 +283,7 @@ public abstract class BaseFragment extends Fragment{
                 App.getInstance().dbHelper.update(mActivity.deviceId,mActivity.manageDevice.getLeftFDevice(),recordData);
                 break;
             case 1002:
-                imgTopright.setImageDrawable(getResources().getDrawable(R.mipmap.link_off_right1));
+                toprightF.setBackground(getResources().getDrawable(R.drawable.day_bg_normal_selector));
                 topright_voltage.setImageDrawable(null);
                 topright_preesure.setText(getActivity().getString(R.string.defaulttemp));
                 topright_temp.setText(getActivity().getString(R.string.defaulttemp));
@@ -280,7 +292,7 @@ public abstract class BaseFragment extends Fragment{
                 App.getInstance().dbHelper.update(mActivity.deviceId,mActivity.manageDevice.getRightFDevice(),recordData);
                 break;
             case 1003:
-                imgBottomleft.setImageDrawable(getResources().getDrawable(R.mipmap.link_off_left2));
+                bottomleftF.setBackground(getResources().getDrawable(R.drawable.day_bg_normal_selector));
                 bottomleft_voltage.setImageDrawable(null);
                 bottomleft_preesure.setText(getActivity().getString(R.string.defaulttemp));
                 bottomleft_temp.setText(getActivity().getString(R.string.defaulttemp));
@@ -289,7 +301,7 @@ public abstract class BaseFragment extends Fragment{
                 App.getInstance().dbHelper.update(mActivity.deviceId,mActivity.manageDevice.getLeftBDevice(),recordData);
                 break;
             case 1004:
-                imgBottomright.setImageDrawable(getResources().getDrawable(R.mipmap.link_off_right2));
+                bottomrightF.setBackground(getResources().getDrawable(R.drawable.day_bg_normal_selector));
                 bottomright_voltage.setImageDrawable(null);
                 bottomright_preesure.setText(getActivity().getString(R.string.defaulttemp));
                 bottomright_temp.setText(getActivity().getString(R.string.defaulttemp));
@@ -310,7 +322,7 @@ public abstract class BaseFragment extends Fragment{
         switch (state) {
             case 1001:
                 topleft_voltage.setImageDrawable(getResources().getDrawable(R.mipmap.pm_battle_off));
-                imgTopleft.setImageDrawable(getResources().getDrawable(R.mipmap.pmlink_off_left1));
+                topleftF.setBackground(getResources().getDrawable(R.drawable.pmlink_off_left1_selctor));
                 topleft_temp.setText(getActivity().getString(R.string.defaulttemp));
                 topleft_preesure.setText(getActivity().getString(R.string.defaulttemp));
                 topleft_releat.setText("");
@@ -320,7 +332,7 @@ public abstract class BaseFragment extends Fragment{
                 break;
             case 1002:
                 topright_voltage.setImageDrawable(getResources().getDrawable(R.mipmap.pm_battle_off));
-                imgTopright.setImageDrawable(getResources().getDrawable(R.mipmap.pmlink_off_right1));
+                toprightF.setBackground(getResources().getDrawable(R.drawable.pmlink_off_left1_selctor));
                 topright_temp.setText(getActivity().getString(R.string.defaulttemp));
                 topright_preesure.setText(getActivity().getString(R.string.defaulttemp));
                 topright_releat.setText("");
@@ -330,7 +342,7 @@ public abstract class BaseFragment extends Fragment{
 
                 break;
             case 1003:
-                imgBottomleft.setImageDrawable(getResources().getDrawable(R.mipmap.pmlink_off_left2));
+                bottomleftF.setBackground(getResources().getDrawable(R.drawable.pmlink_off_left1_selctor));
                 bottomleft_voltage.setImageDrawable(getResources().getDrawable(R.mipmap.pm_battle_off));
                 bottomleft_preesure.setText(getActivity().getString(R.string.defaulttemp));
                 bottomleft_temp.setText(getActivity().getString(R.string.defaulttemp));
@@ -341,7 +353,7 @@ public abstract class BaseFragment extends Fragment{
 
                 break;
             case 1004:
-                imgBottomright.setImageDrawable(getResources().getDrawable(R.mipmap.pmlink_off_right2));
+                bottomrightF.setBackground(getResources().getDrawable(R.drawable.pmlink_off_left1_selctor));
                 bottomright_voltage.setImageDrawable(getResources().getDrawable(R.mipmap.pm_battle_off));
                 bottomright_preesure.setText(getActivity().getString(R.string.defaulttemp));
                 bottomright_temp.setText(getActivity().getString(R.string.defaulttemp));
@@ -362,7 +374,7 @@ public abstract class BaseFragment extends Fragment{
         if(context.isFinishing()) return;
         if(strAddress.equals(mActivity.manageDevice.getLeftBDevice())) {
 //                ll_bottomright.setVisibility(View.VISIBLE);
-            imgBottomleft.setImageDrawable(getResources().getDrawable(R.mipmap.am_normal_left2));
+            bottomleftF.setBackground(getResources().getDrawable(R.drawable.day_bg_normal_selector));
             bottomleft_preesure.setTextColor(getResources().getColor(R.color.phone));
             bottomleft_releat.setTextColor(getResources().getColor(R.color.himtphone));
             bottomleft_releat.setText(noticeStr);
@@ -370,7 +382,7 @@ public abstract class BaseFragment extends Fragment{
             handleVoltageShow(bottomleft_voltage,date);
         }else if(strAddress.equals(mActivity.manageDevice.getRightBDevice())) {
 //                ll_bottomleft.setVisibility(View.VISIBLE);
-            imgBottomright.setImageDrawable(getResources().getDrawable(R.mipmap.am_normal_right2));
+            bottomrightF.setBackground(getResources().getDrawable(R.drawable.day_bg_normal_selector));
             bottomright_preesure.setTextColor(getResources().getColor(R.color.phone));
             bottomright_releat.setTextColor(getResources().getColor(R.color.himtphone));
             bottomright_releat.setText(noticeStr);
@@ -378,7 +390,7 @@ public abstract class BaseFragment extends Fragment{
             handleVoltageShow(bottomright_voltage,date);
         }else if(strAddress.equals(mActivity.manageDevice.getLeftFDevice())) {
 //                ll_topleft.setVisibility(View.VISIBLE);
-            imgTopleft.setImageDrawable(getResources().getDrawable(R.mipmap.am_normal_left1));
+            topleftF.setBackground(getResources().getDrawable(R.drawable.day_bg_normal_selector));
             topleft_preesure.setTextColor(getResources().getColor(R.color.phone));
             topleft_releat.setTextColor(getResources().getColor(R.color.himtphone));
             topleft_releat.setText(noticeStr);
@@ -386,7 +398,7 @@ public abstract class BaseFragment extends Fragment{
             handleVoltageShow(topleft_voltage,date);
         }else if(strAddress.equals(mActivity.manageDevice.getRightFDevice())) {
 //                ll_topright.setVisibility(View.VISIBLE);
-            imgTopright.setImageDrawable(getResources().getDrawable(R.mipmap.am_normal_right1));
+            toprightF.setBackground(getResources().getDrawable(R.drawable.day_bg_normal_selector));
             topright_preesure.setTextColor(getResources().getColor(R.color.phone));
             topright_releat.setTextColor(getResources().getColor(R.color.himtphone));
             topright_releat.setText(noticeStr);
@@ -405,7 +417,7 @@ public abstract class BaseFragment extends Fragment{
         if(context.isFinishing()) return;
         if(strAddress.equals(mActivity.manageDevice.getLeftBDevice())) {
 //                ll_bottomright.setVisibility(View.VISIBLE);
-            imgBottomleft.setImageDrawable(getResources().getDrawable(R.mipmap.pm_normal_left2));
+            bottomleftF.setBackground(getResources().getDrawable(R.drawable.pm_normal_left2_selector));
 //            bottomleft_voltage.setImageDrawable(getResources().getDrawable(R.mipmap.pm_battle_on));
             bottomleft_preesure.setTextColor(getResources().getColor(R.color.blue_night));
             bottomleft_releat.setTextColor(getResources().getColor(R.color.blue_night));
@@ -414,7 +426,7 @@ public abstract class BaseFragment extends Fragment{
             handleVoltageShow(bottomleft_voltage,date);
         }else if(strAddress.equals(mActivity.manageDevice.getRightBDevice())) {
 //                ll_bottomleft.setVisibility(View.VISIBLE);
-            imgBottomright.setImageDrawable(getResources().getDrawable(R.mipmap.pm_normal_right2));
+            bottomrightF.setBackground(getResources().getDrawable(R.drawable.pm_normal_right2_selector));
 //            bottomright_voltage.setImageDrawable(getResources().getDrawable(R.mipmap.pm_battle_on));
             bottomright_preesure.setTextColor(getResources().getColor(R.color.blue_night));
             bottomright_releat.setTextColor(getResources().getColor(R.color.blue_night));
@@ -423,7 +435,7 @@ public abstract class BaseFragment extends Fragment{
             handleVoltageShow(bottomright_voltage,date);
         }else if(strAddress.equals(mActivity.manageDevice.getLeftFDevice())) {
 //                ll_topleft.setVisibility(View.VISIBLE);
-            imgTopleft.setImageDrawable(getResources().getDrawable(R.mipmap.pm_normal_left1));
+            topleftF.setBackground(getResources().getDrawable(R.drawable.pm_normal_left1_selector));
 //            topleft_voltage.setImageDrawable(getResources().getDrawable(R.mipmap.pm_battle_on));
             topleft_preesure.setTextColor(getResources().getColor(R.color.blue_night));
             topleft_releat.setTextColor(getResources().getColor(R.color.blue_night));
@@ -432,7 +444,7 @@ public abstract class BaseFragment extends Fragment{
             handleVoltageShow(topleft_voltage,date);
         }else if(strAddress.equals(mActivity.manageDevice.getRightFDevice())) {
 //                ll_topright.setVisibility(View.VISIBLE);
-            imgTopright.setImageDrawable(getResources().getDrawable(R.mipmap.pm_normal_right1));
+            toprightF.setBackground(getResources().getDrawable(R.drawable.pm_normal_right1_selector));
 //            topright_voltage.setImageDrawable(getResources().getDrawable(R.mipmap.pm_battle_on));
             topright_preesure.setTextColor(getResources().getColor(R.color.blue_night));
             topright_releat.setTextColor(getResources().getColor(R.color.blue_night));
@@ -450,7 +462,7 @@ public abstract class BaseFragment extends Fragment{
     public void bleIsExceptionForDay(String strAddress,String noticeStr) {
         if(context.isFinishing()) return;
         if(strAddress.equals(mActivity.manageDevice.getLeftBDevice())) {
-            imgBottomleft.setImageDrawable(getResources().getDrawable(R.mipmap.am_error_left2));
+            bottomleftF.setBackground(getResources().getDrawable(R.drawable.am_error_selector));
             bottomleft_releat.setTextColor(getResources().getColor(R.color.red));
             bottomleft_releat.setText(noticeStr);
             bottomleft_preesure.setTextColor(getResources().getColor(R.color.red));
@@ -465,7 +477,7 @@ public abstract class BaseFragment extends Fragment{
             }
             bottomleft_voltage.setImageDrawable(getResources().getDrawable(R.mipmap.pm_warning));
         }else if(strAddress.equals(mActivity.manageDevice.getRightBDevice())) {
-            imgBottomright.setImageDrawable(getResources().getDrawable(R.mipmap.am_error_right2));
+            bottomrightF.setBackground(getResources().getDrawable(R.drawable.am_error_selector));
             bottomright_releat.setTextColor(getResources().getColor(R.color.red));
             bottomright_releat.setText(noticeStr);
             bottomright_preesure.setTextColor(getResources().getColor(R.color.red));
@@ -480,7 +492,7 @@ public abstract class BaseFragment extends Fragment{
             }
             bottomright_voltage.setImageDrawable(getResources().getDrawable(R.mipmap.pm_warning));
         }else if(strAddress.equals(mActivity.manageDevice.getLeftFDevice())) {
-            imgTopleft.setImageDrawable(getResources().getDrawable(R.mipmap.am_error_left1));
+            topleftF.setBackground(getResources().getDrawable(R.drawable.am_error_selector));
             topleft_releat.setTextColor(getResources().getColor(R.color.red));
             topleft_releat.setText(noticeStr);
             topleft_preesure.setTextColor(getResources().getColor(R.color.red));
@@ -495,7 +507,7 @@ public abstract class BaseFragment extends Fragment{
             }
             topleft_voltage.setImageDrawable(getResources().getDrawable(R.mipmap.pm_warning));
         }else if(strAddress.equals(mActivity.manageDevice.getRightFDevice())) {
-            imgTopright.setImageDrawable(getResources().getDrawable(R.mipmap.am_error_right1));
+            toprightF.setBackground(getResources().getDrawable(R.drawable.am_error_selector));
             topright_releat.setTextColor(getResources().getColor(R.color.red));
             topright_releat.setText(noticeStr);
             topright_preesure.setTextColor(getResources().getColor(R.color.red));
@@ -520,7 +532,7 @@ public abstract class BaseFragment extends Fragment{
     public void bleIsExceptionForNight(String strAddress,String noticeStr) {
         if(context.isFinishing()) return;
         if(strAddress.equals(mActivity.manageDevice.getLeftBDevice())) {
-            imgBottomleft.setImageDrawable(getResources().getDrawable(R.mipmap.pm_error_left2));
+            bottomleftF.setBackground(getResources().getDrawable(R.drawable.pm_error_selector));
             bottomleft_releat.setTextColor(getResources().getColor(R.color.red));
             bottomleft_releat.setText(noticeStr);
             bottomleft_preesure.setTextColor(getResources().getColor(R.color.red));
@@ -535,7 +547,7 @@ public abstract class BaseFragment extends Fragment{
             }
             bottomleft_voltage.setImageDrawable(getResources().getDrawable(R.mipmap.pm_warning));
         }else if(strAddress.equals(mActivity.manageDevice.getRightBDevice())) {
-            imgBottomright.setImageDrawable(getResources().getDrawable(R.mipmap.pm_error_right2));
+            bottomrightF.setBackground(getResources().getDrawable(R.drawable.pm_error_selector));
             bottomright_releat.setTextColor(getResources().getColor(R.color.red));
             bottomright_releat.setText(noticeStr);
             bottomright_preesure.setTextColor(getResources().getColor(R.color.red));
@@ -550,7 +562,7 @@ public abstract class BaseFragment extends Fragment{
             }
             bottomright_voltage.setImageDrawable(getResources().getDrawable(R.mipmap.pm_warning));
         }else if(strAddress.equals(mActivity.manageDevice.getLeftFDevice())) {
-            imgTopleft.setImageDrawable(getResources().getDrawable(R.mipmap.pm_error_left1));
+            topleftF.setBackground(getResources().getDrawable(R.drawable.pm_error_selector));
             topleft_releat.setTextColor(getResources().getColor(R.color.red));
             topleft_releat.setText(noticeStr);
             topleft_preesure.setTextColor(getResources().getColor(R.color.red));
@@ -565,7 +577,7 @@ public abstract class BaseFragment extends Fragment{
             }
             topleft_voltage.setImageDrawable(getResources().getDrawable(R.mipmap.pm_warning));
         }else if(strAddress.equals(mActivity.manageDevice.getRightFDevice())) {
-            imgTopright.setImageDrawable(getResources().getDrawable(R.mipmap.pm_error_right1));
+            toprightF.setBackground(getResources().getDrawable(R.drawable.pm_error_selector));
             topright_releat.setTextColor(getResources().getColor(R.color.red));
             topright_releat.setText(noticeStr);
             topright_preesure.setTextColor(getResources().getColor(R.color.red));

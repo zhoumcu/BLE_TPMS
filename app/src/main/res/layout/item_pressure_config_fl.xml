@@ -8,7 +8,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/img_topleft"
-        android:src="?attr/backgroundleft1"
+        android:visibility="gone"
+        android:background="?attr/backgroundleft1"
         android:layout_gravity="left|top"
         />
 
@@ -35,6 +36,7 @@
             android:text="@string/defaultdate"
             android:textColor="?attr/time_color"
             android:textSize="11sp"
+            android:visibility="gone"
             android:layout_alignTop="@+id/tv_voltage"
             android:layout_toEndOf="@+id/tv_voltage"
             android:layout_column="1"
@@ -44,6 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/defaulttime"
+            android:visibility="gone"
             android:textSize="@dimen/notice_size"
             android:textColor="?attr/time_color"
             android:layout_alignTop="@+id/tv_preesure"
@@ -54,6 +57,7 @@
             android:gravity="center" />
 
         <TableRow
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -108,7 +112,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/temp_unit"
                 android:textColor="?attr/temp_color"
-                android:textSize="11sp"
+                android:textSize="@dimen/unit_size"
                 android:layout_alignTop="@+id/tv_temp"
                 android:layout_toEndOf="@+id/tv_temp"
                 android:id="@+id/tempunit" />
@@ -130,6 +134,7 @@
         </RelativeLayout>
 
         <TableRow
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 

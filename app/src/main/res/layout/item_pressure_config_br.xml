@@ -8,7 +8,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/img_topleft"
-        android:src="?attr/backgroundright2"
+        android:visibility="gone"
+        android:background="?attr/backgroundright2"
         android:layout_gravity="left|top"
         />
 

@@ -9,6 +9,13 @@
         <!--<item name="actionOverflowButtonStyle">@style/OverFlow</item>-->
 
     </style>
+    <style name="Notitle" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
     <style name="divider_line_1dp_gray">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>
@@ -130,10 +137,10 @@
         <item name="press_color">@color/phone</item>
         <item name="time_color">@color/green</item>
         <item name="static_color">@color/green</item>
-        <item name="backgroundleft1">@mipmap/link_off_left1</item>
-        <item name="backgroundright1">@mipmap/link_off_right1</item>
-        <item name="backgroundleft2">@mipmap/link_off_left2</item>
-        <item name="backgroundright2">@mipmap/link_off_right2</item>
+        <item name="backgroundleft1">@drawable/day_bg_link_left1_selector</item>
+        <item name="backgroundright1">@drawable/day_bg_link_right1_selector</item>
+        <item name="backgroundleft2">@drawable/day_bg_link_left2_selector</item>
+        <item name="backgroundright2">@drawable/day_bg_link_right2_selector</item>
         <item name="actionOverflowButtonStyle">@style/OverFlow</item>
         <item name="overflow">@mipmap/am_ico</item>
         <item name="battle">@null</item>
@@ -141,7 +148,7 @@
         <item name="backicon">@mipmap/ico_back</item>
         <item name="title_back">@color/colorPrimary</item>
         <item name="title_color">@color/white</item>
-        <item name="press_bg">@mipmap/am_bg</item>
+        <item name="press_bg">@drawable/am_bg</item>
     </style>
 
     <!-- 夜间主题 -->
@@ -150,10 +157,10 @@
         <item name="press_color">@color/blue_night</item>
         <item name="time_color">@color/blue_night</item>
         <item name="static_color">@color/blue_night</item>
-        <item name="backgroundleft1">@mipmap/pmlink_off_left1</item>
-        <item name="backgroundright1">@mipmap/pmlink_off_right1</item>
-        <item name="backgroundleft2">@mipmap/pmlink_off_left2</item>
-        <item name="backgroundright2">@mipmap/pmlink_off_right2</item>
+        <item name="backgroundleft1">@drawable/pmlink_off_left1_selctor</item>
+        <item name="backgroundright1">@drawable/pmlink_off_left1_selctor</item>
+        <item name="backgroundleft2">@drawable/pmlink_off_left1_selctor</item>
+        <item name="backgroundright2">@drawable/pmlink_off_left1_selctor</item>
         <item name="actionOverflowButtonStyle">@style/OverFlow</item>
         <item name="overflow">@mipmap/pm_ico</item>
         <item name="battle">@null</item>
@@ -165,7 +172,7 @@
         <item name="backicon">@mipmap/pm_back</item>
         <item name="title_color">@color/blue_night</item>
         <item name="title_back">@android:color/transparent</item>
-        <item name="press_bg">@mipmap/pm_bg</item>
+        <item name="press_bg">@drawable/pm_bg</item>
     </style>
 
     <style name="text_18_ffffff">

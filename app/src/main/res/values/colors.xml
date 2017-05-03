@@ -30,4 +30,8 @@
     <color name="title_bg">#291822</color>
 
     <color name="car_bg">#1f80b3</color>
+
+    <color name="day_bg">#271823</color>
+
+    <color name="day_dark_bg">#180C10</color>
 </resources>

@@ -27,7 +27,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.TimerTask;
 
 /**
  * Created by Administrator on 2016/6/6.
@@ -97,13 +96,6 @@ public class MainPagerFragment extends BaseFragment {
         }
     };
 
-    private  class MyTimerTask extends TimerTask {
-        @Override
-        public void run() {
-            timeCount--;
-            connect();
-        }
-    }
     /**
      * 旧方法
      */
