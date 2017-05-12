@@ -34,7 +34,7 @@ public class DataHelper {
         float voltage = 0.00f,press = 0, temp =0;
         int temp1 = 0,state = 0,rssi = 0;
         String pressStr = "";
-        DecimalFormat df = new DecimalFormat("######0.0");
+        DecimalFormat df = new DecimalFormat("#0.0#");
         BleData bleData = new BleData();
         if(data==null) return bleData;
         if(data.length==0) return bleData;
@@ -48,10 +48,10 @@ public class DataHelper {
                 pressStr = df.format(press);
             }else if(SharedPreferences.getInstance().getString(Constants.PRESSUER_DW, "Bar").equals("Kpa")) {
                 press = Math.round(press*102*10)*0.1f;
-                pressStr = String.valueOf(press);
+                pressStr = df.format(press);
             }else{
                 press = Math.round(press*14.5f*10)*0.1f;
-                pressStr = String.valueOf(press);
+                pressStr = df.format(press);
             }
 
             if(SharedPreferences.getInstance().getString(Constants.TEMP_DW, "℃").equals("℃")) {
@@ -69,10 +69,10 @@ public class DataHelper {
                 pressStr = df.format(press);
             }else if(SharedPreferences.getInstance().getString(Constants.PRESSUER_DW, "Bar").equals("Kpa")) {
                 press = Math.round(press*102*10)*0.1f;
-                pressStr = String.valueOf(press);
+                pressStr = df.format(press);
             }else{
                 press = Math.round(press*14.5f*10)*0.1f;
-                pressStr = String.valueOf(press);
+                pressStr = df.format(press);
             }
             if(SharedPreferences.getInstance().getString(Constants.TEMP_DW, "℃").equals("℃")) {
                 temp1 = (int)temp;

@@ -149,6 +149,7 @@
         <item name="title_back">@android:color/transparent</item>
         <item name="title_color">@color/white</item>
         <item name="press_bg">@drawable/am_bg</item>
+        <item name="car_img">@drawable/che</item>
     </style>
 
     <!-- 夜间主题 -->
@@ -173,6 +174,7 @@
         <item name="title_color">@color/blue_night</item>
         <item name="title_back">@android:color/transparent</item>
         <item name="press_bg">@drawable/pm_bg</item>
+        <item name="car_img">@drawable/che_night</item>
     </style>
 
     <style name="text_18_ffffff">

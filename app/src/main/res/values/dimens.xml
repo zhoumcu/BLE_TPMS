@@ -4,8 +4,9 @@
     <dimen name="activity_vertical_margin">5dp</dimen>
     <dimen name="title_bar_height">48sp</dimen>
     <dimen name="press_size_kpa">18sp</dimen>
-    <dimen name="press_size">22sp</dimen>
-    <dimen name="temp_size">20sp</dimen>
+    <dimen name="press_size">25sp</dimen>
+    <dimen name="temp_size">23sp</dimen>
     <dimen name="unit_size">16sp</dimen>
     <dimen name="notice_size">16sp</dimen>
+    <dimen name="text_size">28sp</dimen>
 </resources>

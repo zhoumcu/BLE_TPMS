@@ -20,7 +20,7 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
     <!--权限-->
     <uses-feature android:name="android.hardware.bluetooth_le" android:required="true" />
-
+    <uses-permission-sdk-23 android:name="android.permission.WRITE_SETTINGS"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_logo"

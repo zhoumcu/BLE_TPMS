@@ -16,6 +16,6 @@
     <attr name="backicon" format = "reference"/>
     <attr name="setting" format = "reference"/>
     <attr name="title_back" format = "reference"/>
-
+    <attr name="car_img" format = "reference"/>
     <attr name="title_color" format="color" />
 </resources>

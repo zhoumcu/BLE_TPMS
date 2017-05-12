@@ -166,6 +166,8 @@ public class PersonSetting extends BaseActionBarActivity implements View.OnClick
         Intent intent = new Intent();
         intent.setClass(PersonSetting.this, LoginActivity.class);
         startActivity(intent);
+        //禁止后台推送
+        SharedPreferences.getInstance().putBoolean("isAppOnForeground",false);
         SharedPreferences.getInstance().putBoolean(Constants.IS_LOGIN, false);
         App.getInstance().exit();
     }

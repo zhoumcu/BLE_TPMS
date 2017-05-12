@@ -21,6 +21,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.8.0\5ea7af56cc7c567ed9856d99efb30740e9b17ff\okio-1.8.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
+        <dex dex="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\pre-dexed\debug\okio-1.8.0_06f7f952010e37a20e0067d81e65675288b9e24f.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.haha\haha\1.1\b7b2e61ee1ad2d1ac6ae3122de9c940fb0d0e635\haha-1.1.jar"
         jumboMode="false"
         optimize="true"
@@ -39,12 +48,57 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.j256.ormlite\ormlite-android\4.48\afa06f539a4026c10b247386312aa67404b80a16\ormlite-android-4.48.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="afa06f539a4026c10b247386312aa67404b80a16">
+        <dex dex="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\pre-dexed\debug\ormlite-android-4.48_f36ef3b839478551d009ded9878c754102a43305.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\io.reactivex\rxandroid\0.24.0\42dab493b8f74b164e082f281480c9d493ff89da\rxandroid-0.24.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="42dab493b8f74b164e082f281480c9d493ff89da">
+        <dex dex="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\pre-dexed\debug\rxandroid-0.24.0_54a70d496759fa4a9b2a85d2c40170ac51412347.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.leakcanary\leakcanary-analyzer\1.3\c5399b18a672f7973c8a9b9d6b731a3a36e590cc\leakcanary-analyzer-1.3.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
         sha1="c5399b18a672f7973c8a9b9d6b731a3a36e590cc">
         <dex dex="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\pre-dexed\debug\leakcanary-analyzer-1.3_ba89375cab49ca20c49552e2a0972df338206a91.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\exploded-aar\BleCentral_phone_port\PushSDK\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="a908a9ecf77c0bb9ef606b0aa7a0c0dc0612eb02">
+        <dex dex="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\pre-dexed\debug\BleCentral_phone_port-PushSDK-unspecified_434176f24d880f8094b310bd65a3f33a2e9e32cb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.leakcanary\leakcanary-watcher\1.3\632482a61ad24b7ec864072945d221369f9a606\leakcanary-watcher-1.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="0632482a61ad24b7ec864072945d221369f9a606">
+        <dex dex="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\pre-dexed\debug\leakcanary-watcher-1.3_846c5f07ba85ee25c438724ac68b7355bbd7d802.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\adapter-rxjava\2.1.0\693eddc23e87ab13f9cf5001707ce8e7e1d1ff01\adapter-rxjava-2.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="693eddc23e87ab13f9cf5001707ce8e7e1d1ff01">
+        <dex dex="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\pre-dexed\debug\adapter-rxjava-2.1.0_a922f2c9139fd2cbbf2500b5aa528f1e500fa2f5.jar" />
     </item>
     <item
         is-multidex="false"
@@ -88,7 +142,7 @@
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
-        sha1="f3a02a700b32a9b9395c68b1d80cf40201deac25">
+        sha1="26478d20700b2d10be5646eb36f8e5208f30640b">
         <dex dex="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\pre-dexed\debug\BleCentral_phone_port-barCodeTest-unspecified_88d43624576ed58b5d50b12e006463d56741a026.jar" />
     </item>
     <item
@@ -126,6 +180,24 @@
         revision="23.0.3"
         sha1="aab9085bca0c26dcb9cb11837a5f5e22cc102a5e">
         <dex dex="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\pre-dexed\debug\umeng-analytics-v6.0.1_aee7d2dd51ced4b7390705319267c095118abe99.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\exploded-aar\BleCentral_phone_port\PushSDK\unspecified\jars\libs\com.umeng.message_v2.8.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="342ead8016ac22aa935e1afb461184863b47e1f6">
+        <dex dex="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\pre-dexed\debug\com.umeng.message_v2.8.1_9b11ce93f3fba5d5cf8ec36277ec99798e19568e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
+        <dex dex="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.3.0_1e9e0052d7121583699ac3ad54afd6d61da2a4d7.jar" />
     </item>
     <item
         is-multidex="false"
@@ -174,87 +246,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.3.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
-        <dex dex="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-23.3.0_a9686ae0084a427d18fc08aea192e9fca2ddc76a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.8.0\5ea7af56cc7c567ed9856d99efb30740e9b17ff\okio-1.8.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
-        <dex dex="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\pre-dexed\debug\okio-1.8.0_06f7f952010e37a20e0067d81e65675288b9e24f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.j256.ormlite\ormlite-android\4.48\afa06f539a4026c10b247386312aa67404b80a16\ormlite-android-4.48.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="afa06f539a4026c10b247386312aa67404b80a16">
-        <dex dex="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\pre-dexed\debug\ormlite-android-4.48_f36ef3b839478551d009ded9878c754102a43305.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\io.reactivex\rxandroid\0.24.0\42dab493b8f74b164e082f281480c9d493ff89da\rxandroid-0.24.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="42dab493b8f74b164e082f281480c9d493ff89da">
-        <dex dex="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\pre-dexed\debug\rxandroid-0.24.0_54a70d496759fa4a9b2a85d2c40170ac51412347.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\exploded-aar\BleCentral_phone_port\PushSDK\unspecified\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="a908a9ecf77c0bb9ef606b0aa7a0c0dc0612eb02">
-        <dex dex="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\pre-dexed\debug\BleCentral_phone_port-PushSDK-unspecified_434176f24d880f8094b310bd65a3f33a2e9e32cb.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.leakcanary\leakcanary-watcher\1.3\632482a61ad24b7ec864072945d221369f9a606\leakcanary-watcher-1.3.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="0632482a61ad24b7ec864072945d221369f9a606">
-        <dex dex="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\pre-dexed\debug\leakcanary-watcher-1.3_846c5f07ba85ee25c438724ac68b7355bbd7d802.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\adapter-rxjava\2.1.0\693eddc23e87ab13f9cf5001707ce8e7e1d1ff01\adapter-rxjava-2.1.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="693eddc23e87ab13f9cf5001707ce8e7e1d1ff01">
-        <dex dex="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\pre-dexed\debug\adapter-rxjava-2.1.0_a922f2c9139fd2cbbf2500b5aa528f1e500fa2f5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\exploded-aar\BleCentral_phone_port\PushSDK\unspecified\jars\libs\com.umeng.message_v2.8.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="342ead8016ac22aa935e1afb461184863b47e1f6">
-        <dex dex="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\pre-dexed\debug\com.umeng.message_v2.8.1_9b11ce93f3fba5d5cf8ec36277ec99798e19568e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
-        <dex dex="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.3.0_1e9e0052d7121583699ac3ad54afd6d61da2a4d7.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit\retrofit\1.9.0\a681c044244d9fc375198588297a39ba78028423\retrofit-1.9.0.jar"
         jumboMode="false"
         optimize="true"
@@ -270,6 +261,15 @@
         revision="23.0.3"
         sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
         <dex dex="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\pre-dexed\debug\gson-2.3.1_3d67bc6296728dce11d45e3fe02a4d0f0bf336e9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
+        <dex dex="E:\2017\xiaoan\TPMSProject\BleCentral_phone_port\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-23.3.0_a9686ae0084a427d18fc08aea192e9fca2ddc76a.jar" />
     </item>
 
 </items>

@@ -937,10 +937,8 @@ public class MainPagerFragment2 extends Fragment implements View.OnClickListener
      * @param strAddress
      * @param noticeStr
      */
-    private void bleIsExceptionForDay(String strAddress,String noticeStr)
-    {
-        if(strAddress.equals(mActivity.manageDevice.getLeftBDevice()))
-        {
+    private void bleIsExceptionForDay(String strAddress,String noticeStr) {
+        if(strAddress.equals(mActivity.manageDevice.getLeftBDevice())) {
             imgBottomleft.setImageDrawable(getResources().getDrawable(R.mipmap.am_error_left2));
             bottomleft_releat.setTextColor(getResources().getColor(R.color.red));
             bottomleft_releat.setText(noticeStr);

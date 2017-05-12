@@ -21,17 +21,18 @@
 
             <ProgressBar
                 android:id="@android:id/progress"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="98dp"
+                android:layout_height="98dp"
                 android:layout_gravity="center" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:text="5"
+                android:text="15"
+                android:gravity="center"
                 android:visibility="gone"
                 android:textStyle="bold|italic"
-                android:textSize="30sp"
+                android:textSize="@dimen/text_size"
                 android:textColor="@color/black"
                 android:layout_gravity="center"
                 android:id="@+id/tv_count" />

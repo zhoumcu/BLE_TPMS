@@ -19,4 +19,5 @@ android {
 
 dependencies {
     compile files('libs/zxing.jar')
+    compile 'com.android.support:support-v4:23.3.0'
 }

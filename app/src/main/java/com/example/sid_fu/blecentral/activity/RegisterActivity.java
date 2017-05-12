@@ -101,6 +101,7 @@ public class RegisterActivity extends BaseActionBarActivity {
                     @Override
                     public void onFailure(Request request, IOException e) {
                         super.onFailure(request, e);
+                        ToastUtil.show("发送验证码失败");
                     }
                     @Override
                     public void onSuccess(int statusCode, String content) {
@@ -163,8 +164,6 @@ public class RegisterActivity extends BaseActionBarActivity {
     }
     @OnClick(R.id.btnSure)
     public void btnLogin() {
-        loadingDialog.setText("校验验证码。。。");
-        loadingDialog.show();
         if (TextUtils.isEmpty(phone.getText().toString()) || TextUtils.isEmpty(code.getText().toString())) {
             loadingDialog.dismiss();
             ToastUtil.show("手机号码和验证码不能为空");
@@ -180,6 +179,8 @@ public class RegisterActivity extends BaseActionBarActivity {
             ToastUtil.show("请先阅读用户使用协议及隐私条款");
             return;
         }
+        loadingDialog.setText("校验验证码。。。");
+        loadingDialog.show();
         Intent intent = new Intent(RegisterActivity.this, RegisterNextActivity.class);
         intent.putExtra("phoneNumber", phone.getText().toString());
         intent.putExtra("state", state);
