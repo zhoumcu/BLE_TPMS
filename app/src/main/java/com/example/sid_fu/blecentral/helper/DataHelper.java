@@ -1,6 +1,6 @@
 package com.example.sid_fu.blecentral.helper;
 
-import com.example.sid_fu.blecentral.ManageDevice;
+import com.example.sid_fu.blecentral.model.ManageDevice;
 import com.example.sid_fu.blecentral.ui.BleData;
 import com.example.sid_fu.blecentral.utils.Constants;
 import com.example.sid_fu.blecentral.utils.DataUtils;
@@ -121,7 +121,7 @@ public class DataHelper {
         } else {
             buffer.append(statusData[date.getStatus()] + " ");
         }
-        if (buffer.toString().contains("快漏气")||date.getPress() > maxPress || date.getPress() < minPress || date.getTemp() >= maxTemp ? true: false) {
+        if (buffer.toString().contains("快漏气")||date.getPress() > maxPress || date.getPress() < minPress || date.getTemp() > maxTemp ? true: false) {
             //高压
             date.setIsError(true);
         }else {

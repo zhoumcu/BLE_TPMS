@@ -3,6 +3,8 @@ package com.example.sid_fu.blecentral;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.media.AudioFormat;
 import android.media.AudioManager;
 import android.media.AudioTrack;
@@ -23,6 +25,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Vector;
+
+import cn.bmob.v3.Bmob;
+import cn.bmob.v3.update.BmobUpdateAgent;
 
 /**
  * Created by bob on 2015/1/30.
@@ -72,12 +77,16 @@ public class App extends Application implements TextToSpeech.OnInitListener{
         SoundPlayUtils.init(this);
 //        LeakCanary.install(this);
         dbHelper = DbHelper.getInstance(this);
+        //第一：默认初始化
+        Bmob.initialize(this, "96fac7e033ee07d482b599280dd49f8c");
+        BmobUpdateAgent.initAppVersion();
     }
     public void add(String str) {
         textToSpeech.addSpeech(str,"test");
         speak(str);
     }
     public void speak(String text) {
+
     }
     // add Activity
     public void addActivity(Activity activity) {
@@ -283,5 +292,22 @@ public class App extends Application implements TextToSpeech.OnInitListener{
         Logger.d("onTerminate");
         super.onTerminate();
         isFirst = false;
+    }
+
+    /**
+     * 获取版本号
+     *
+     * @return 当前应用的版本号
+     */
+    public static String getVersion() {
+        try {
+            PackageManager manager = app.getPackageManager();
+            PackageInfo info = manager.getPackageInfo(app.getPackageName(), 0);
+            String version = info.versionName;
+            return version;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
     }
 }

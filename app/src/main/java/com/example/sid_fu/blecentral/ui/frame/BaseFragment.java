@@ -20,7 +20,7 @@ import android.widget.TextView;
 
 import com.example.sid_fu.blecentral.App;
 import com.example.sid_fu.blecentral.R;
-import com.example.sid_fu.blecentral.activity.MainFrameForStartServiceActivity;
+import com.example.sid_fu.blecentral.ui.activity.MainFrameForStartServiceActivity;
 import com.example.sid_fu.blecentral.db.entity.RecordData;
 import com.example.sid_fu.blecentral.ui.BleData;
 import com.example.sid_fu.blecentral.utils.Constants;

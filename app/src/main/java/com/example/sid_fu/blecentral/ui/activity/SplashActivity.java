@@ -10,7 +10,6 @@ import android.support.v4.content.ContextCompat;
 import android.widget.ImageView;
 
 import com.example.sid_fu.blecentral.R;
-import com.example.sid_fu.blecentral.activity.LoginActivity;
 import com.example.sid_fu.blecentral.utils.Constants;
 import com.example.sid_fu.blecentral.utils.SharedPreferences;
 import com.example.sid_fu.blecentral.utils.SoundPlayUtils;

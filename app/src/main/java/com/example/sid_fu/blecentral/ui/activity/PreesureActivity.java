@@ -16,7 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-import com.example.sid_fu.blecentral.BluetoothLeService;
+import com.example.sid_fu.blecentral.service.BluetoothLeService;
 import com.example.sid_fu.blecentral.R;
 import com.example.sid_fu.blecentral.ui.frame.TitleBarActivity;
 import com.example.sid_fu.blecentral.utils.ToastUtil;

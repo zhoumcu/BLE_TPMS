@@ -16,15 +16,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sid_fu.blecentral.App;
-import com.example.sid_fu.blecentral.BluetoothLeStartService;
 import com.example.sid_fu.blecentral.R;
-import com.example.sid_fu.blecentral.activity.CarInfoDetailActivity;
-import com.example.sid_fu.blecentral.activity.CarListViewActivity;
-import com.example.sid_fu.blecentral.activity.MainFrameForStartServiceActivity;
 import com.example.sid_fu.blecentral.adapter.DeviceAdapter;
 import com.example.sid_fu.blecentral.db.dao.DeviceDao;
 import com.example.sid_fu.blecentral.db.entity.Device;
 import com.example.sid_fu.blecentral.helper.HomeDataHelper;
+import com.example.sid_fu.blecentral.service.BluetoothLeStartService;
 import com.example.sid_fu.blecentral.utils.BitmapUtils;
 import com.example.sid_fu.blecentral.utils.Constants;
 import com.example.sid_fu.blecentral.utils.Logger;
@@ -38,6 +35,9 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.bmob.v3.listener.BmobUpdateListener;
+import cn.bmob.v3.update.BmobUpdateAgent;
+import cn.bmob.v3.update.UpdateResponse;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
@@ -75,6 +75,17 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main01);
         ButterKnife.bind(this);
+        BmobUpdateAgent.setUpdateOnlyWifi(false);
+        BmobUpdateAgent.update(this);
+        BmobUpdateAgent.setUpdateListener(new BmobUpdateListener() {
+
+            @Override
+            public void onUpdateReturned(int updateStatus, UpdateResponse updateInfo) {
+                // TODO Auto-generated method stub
+                //根据updateStatus来判断更新是否成功
+                Logger.e("更新："+updateStatus + updateInfo.toString());
+            }
+        });
         mContext = HomeActivity.this;
         intView();
     }

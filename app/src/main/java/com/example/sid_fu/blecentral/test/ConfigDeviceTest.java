@@ -30,9 +30,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sid_fu.blecentral.App;
-import com.example.sid_fu.blecentral.BluetoothLeService;
-import com.example.sid_fu.blecentral.ManageDevice;
-import com.example.sid_fu.blecentral.NotifyDialog;
+import com.example.sid_fu.blecentral.service.BluetoothLeService;
+import com.example.sid_fu.blecentral.model.ManageDevice;
+import com.example.sid_fu.blecentral.widget.NotifyDialog;
 import com.example.sid_fu.blecentral.R;
 import com.example.sid_fu.blecentral.ui.BleData;
 import com.example.sid_fu.blecentral.utils.DateUtils;

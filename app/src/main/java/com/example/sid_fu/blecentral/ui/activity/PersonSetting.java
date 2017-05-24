@@ -16,8 +16,6 @@ import android.widget.TextView;
 
 import com.example.sid_fu.blecentral.App;
 import com.example.sid_fu.blecentral.R;
-import com.example.sid_fu.blecentral.activity.LoginActivity;
-import com.example.sid_fu.blecentral.activity.PrivateActivity;
 import com.example.sid_fu.blecentral.db.dao.DeviceDao;
 import com.example.sid_fu.blecentral.db.entity.Device;
 import com.example.sid_fu.blecentral.utils.Constants;
@@ -29,6 +27,7 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.bmob.v3.update.BmobUpdateAgent;
 
 /**
  * Created by sid-fu on 2016/5/16.
@@ -51,6 +50,8 @@ public class PersonSetting extends BaseActionBarActivity implements View.OnClick
     Switch switch2;
     @Bind(R.id.tv_land_port)
     TextView tvLandPort;
+    @Bind(R.id.update)
+    TextView update;
     private String contentString;
     //    private ManageDevice manageDevice;
     private List<Device> articles;
@@ -91,6 +92,7 @@ public class PersonSetting extends BaseActionBarActivity implements View.OnClick
             }
         });
         switch2.setChecked(SharedPreferences.getInstance().getBoolean(Constants.DAY_NIGHT, false));
+        update.setText("版本V"+App.getVersion());
     }
 
     @OnClick(R.id.img_qcode)
@@ -170,6 +172,11 @@ public class PersonSetting extends BaseActionBarActivity implements View.OnClick
         SharedPreferences.getInstance().putBoolean("isAppOnForeground",false);
         SharedPreferences.getInstance().putBoolean(Constants.IS_LOGIN, false);
         App.getInstance().exit();
+    }
+
+    @OnClick(R.id.update)
+    public void update() {
+        BmobUpdateAgent.forceUpdate(mContext);
     }
 
     @Override

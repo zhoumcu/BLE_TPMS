@@ -16,8 +16,8 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 import com.example.sid_fu.blecentral.App;
-import com.example.sid_fu.blecentral.BluetoothLeService;
-import com.example.sid_fu.blecentral.ManageDevice;
+import com.example.sid_fu.blecentral.service.BluetoothLeService;
+import com.example.sid_fu.blecentral.model.ManageDevice;
 import com.example.sid_fu.blecentral.R;
 import com.example.sid_fu.blecentral.utils.Logger;
 

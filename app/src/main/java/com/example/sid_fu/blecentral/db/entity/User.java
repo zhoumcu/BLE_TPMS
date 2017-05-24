@@ -8,8 +8,7 @@ import java.io.Serializable;
 import java.util.Collection;
 
 @DatabaseTable(tableName = "tb_user")
-public class User implements Serializable
-{
+public class User implements Serializable {
 	@DatabaseField(generatedId = true)
 	private int id;
 	@DatabaseField(columnName = "name")
@@ -72,8 +71,7 @@ public class User implements Serializable
 	}
 
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", articles=" + devices + ", photoNumber=" + photoNumber+ ", passWord=" + passWord
 				+ "]";
 	}

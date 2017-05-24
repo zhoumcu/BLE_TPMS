@@ -1,6 +1,6 @@
 package com.example.sid_fu.blecentral.utils;
 
-import com.example.sid_fu.blecentral.ParsedAd;
+import com.example.sid_fu.blecentral.model.ParsedAd;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
