@@ -3,6 +3,7 @@ package com.example.sid_fu.blecentral;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.media.AudioFormat;
@@ -32,7 +33,7 @@ import cn.bmob.v3.update.BmobUpdateAgent;
 /**
  * Created by bob on 2015/1/30.
  */
-public class App extends Application implements TextToSpeech.OnInitListener{
+public class App extends Application implements TextToSpeech.OnInitListener,Thread.UncaughtExceptionHandler{
 
     public static App app;
     public TextToSpeech textToSpeech;
@@ -309,5 +310,14 @@ public class App extends Application implements TextToSpeech.OnInitListener{
             e.printStackTrace();
             return "";
         }
+    }
+
+    @Override
+    public void uncaughtException(Thread thread, Throwable ex) {
+        System.out.println("uncaughtException");
+        System.exit(0);
+        Intent intent = new Intent(this, HomeActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 }
