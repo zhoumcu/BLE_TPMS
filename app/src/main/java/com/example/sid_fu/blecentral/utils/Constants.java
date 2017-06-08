@@ -90,4 +90,17 @@ public class Constants {
         }
         return getHighTempValue()%10;
     }
+    public static int getLowPressProgress(float f){
+        if(f==1.7f) return 0;
+        return (int) ((f-1.6)*10);
+    }
+    public static int getHighPressProgress(float f){
+        Logger.e(String.valueOf(f));
+        if(f==2.7f) return 0;
+        if(f==4.0f) return 13;
+        return (int)((f-2.7)*10);
+    }
+    public static int getLowTempProgress(int f){
+        return f-50;
+    }
 }

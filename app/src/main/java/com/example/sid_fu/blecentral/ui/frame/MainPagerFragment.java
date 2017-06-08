@@ -9,11 +9,11 @@ import android.os.Handler;
 import android.os.Message;
 
 import com.example.sid_fu.blecentral.App;
-import com.example.sid_fu.blecentral.service.BluetoothLeService;
 import com.example.sid_fu.blecentral.R;
-import com.example.sid_fu.blecentral.service.ScanDeviceRunnable;
 import com.example.sid_fu.blecentral.db.entity.RecordData;
 import com.example.sid_fu.blecentral.helper.DataHelper;
+import com.example.sid_fu.blecentral.model.SampleGattAttributes;
+import com.example.sid_fu.blecentral.service.ScanDeviceRunnable;
 import com.example.sid_fu.blecentral.ui.BleData;
 import com.example.sid_fu.blecentral.utils.Constants;
 import com.example.sid_fu.blecentral.utils.DigitalTrans;
@@ -129,7 +129,7 @@ public class MainPagerFragment extends BaseFragment {
         @Override
         public void onReceive(Context context, final Intent intent) {
             String action = intent.getAction();
-            if (BluetoothLeService.ACTION_CHANGE_RESULT.equals(action)) {
+            if (SampleGattAttributes.ACTION_CHANGE_RESULT.equals(action)) {
                 BluetoothDevice device = intent.getParcelableExtra("DEVICE_ADDRESS");
                 int rssi = intent.getIntExtra("RSSI",0);
                 byte[] scanRecord = intent.getByteArrayExtra("SCAN_RECORD");
@@ -138,7 +138,7 @@ public class MainPagerFragment extends BaseFragment {
                 if(getActivity().getResources().getBoolean(R.bool.isShowRssi))
                     showRssi(device, rssi);
                 Logger.e("收到广播数据");
-            }else if(BluetoothLeService.ACTION_DISCONNECT_SCAN.equals(action)) {
+            }else if(SampleGattAttributes.ACTION_DISCONNECT_SCAN.equals(action)) {
                 //解绑断开
                 Logger.e("解绑断开");
             }
@@ -151,8 +151,8 @@ public class MainPagerFragment extends BaseFragment {
      */
     private static IntentFilter makeGattUpdateIntentFilter() {
         final IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(BluetoothLeService.ACTION_CHANGE_RESULT);
-        intentFilter.addAction(BluetoothLeService.ACTION_DISCONNECT_SCAN);
+        intentFilter.addAction(SampleGattAttributes.ACTION_CHANGE_RESULT);
+        intentFilter.addAction(SampleGattAttributes.ACTION_DISCONNECT_SCAN);
         return intentFilter;
     }
 

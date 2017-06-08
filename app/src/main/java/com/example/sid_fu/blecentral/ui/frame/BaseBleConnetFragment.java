@@ -16,9 +16,9 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 import com.example.sid_fu.blecentral.App;
-import com.example.sid_fu.blecentral.service.BluetoothLeService;
-import com.example.sid_fu.blecentral.model.ManageDevice;
 import com.example.sid_fu.blecentral.R;
+import com.example.sid_fu.blecentral.model.ManageDevice;
+import com.example.sid_fu.blecentral.model.SampleGattAttributes;
 import com.example.sid_fu.blecentral.utils.Logger;
 
 /**
@@ -165,7 +165,7 @@ public abstract class BaseBleConnetFragment extends Fragment{
                     Logger.e("发现新设备"+device.getAddress());
                     if(!isNull(device,manageDevice.getLeftBDevice())||!isNull(device,manageDevice.getLeftFDevice())||!isNull(device,manageDevice.getRightBDevice())
                             ||!isNull(device,manageDevice.getRightFDevice())) {
-                        broadcastUpdate(BluetoothLeService.ACTION_RETURN_OK,device,rssi,scanRecord);
+                        broadcastUpdate(SampleGattAttributes.ACTION_RETURN_OK,device,rssi,scanRecord);
                     }
                     // 发现小米3必须加以下的这3个语句，否则不更新数据，而三星的机子s3则没有这个问题
                     /*if (mScanning == true) {

@@ -30,7 +30,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sid_fu.blecentral.App;
-import com.example.sid_fu.blecentral.service.BluetoothLeService;
+import com.example.sid_fu.blecentral.model.SampleGattAttributes;
+import com.example.sid_fu.blecentral.service.BaseBluetoothLeService;
 import com.example.sid_fu.blecentral.model.ManageDevice;
 import com.example.sid_fu.blecentral.widget.NotifyDialog;
 import com.example.sid_fu.blecentral.R;
@@ -94,7 +95,7 @@ public class ConfigDeviceTest extends ActionBarActivity implements View.OnClickL
 //        deviceDate.setDeviceName("宝马3系列");
 //        deviceDate.setDeviceDescripe("宝马3系列是一款.....");
 //        deviceDate.setUser(user);
-        Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
+        Intent gattServiceIntent = new Intent(this, BaseBluetoothLeService.class);
         Logger.d("Try to bindService=" + bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE));
         registerReceiver(mGattUpdateReceiver, makeGattUpdateIntentFilter());
     }
@@ -294,12 +295,12 @@ public class ConfigDeviceTest extends ActionBarActivity implements View.OnClickL
 
     }
 
-    private BluetoothLeService mBluetoothLeService;
+    private BaseBluetoothLeService mBluetoothLeService;
     // Code to manage Service lifecycle.
     private final ServiceConnection mServiceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder service) {
-            mBluetoothLeService = ((BluetoothLeService.LocalBinder) service).getService();
+            mBluetoothLeService = ((BaseBluetoothLeService.LocalBinder) service).getService();
             if (!mBluetoothLeService.initialize()) {
                 Log.e(TAG, "Unable to initialize Bluetooth");
                 finish();
@@ -322,10 +323,10 @@ public class ConfigDeviceTest extends ActionBarActivity implements View.OnClickL
         @Override
         public void onReceive(Context context, final Intent intent) {
             String action = intent.getAction();
-            if (BluetoothLeService.ACTION_GATT_CONNECTED.equals(action)) {
+            if (SampleGattAttributes.ACTION_GATT_CONNECTED.equals(action)) {
                 BluetoothDevice device = intent.getParcelableExtra("DEVICE_ADDRESS");
                 Logger.e("connected:" + device.getAddress());
-            } else if (BluetoothLeService.ACTION_GATT_DISCONNECTED.equals(action)) {
+            } else if (SampleGattAttributes.ACTION_GATT_DISCONNECTED.equals(action)) {
                 BluetoothDevice device = intent.getParcelableExtra("DEVICE_ADDRESS");
                 //断开
                 showDialog("已完成", false);
@@ -333,7 +334,7 @@ public class ConfigDeviceTest extends ActionBarActivity implements View.OnClickL
 //                loadDialog.dismiss();
                 //mBluetoothAdapter.stopLeScan(mLeScanCallback);
                 Logger.e("Disconneted GATT Services" + device.getAddress());
-            } else if (BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED.equals(action)) {
+            } else if (SampleGattAttributes.ACTION_GATT_SERVICES_DISCOVERED.equals(action)) {
                 BluetoothDevice device = intent.getParcelableExtra("DEVICE_ADDRESS");
                 //获取数据
                 mBluetoothLeService.writeChar6("AT+GET");
@@ -341,11 +342,11 @@ public class ConfigDeviceTest extends ActionBarActivity implements View.OnClickL
                 showDialog("正在配置传感器。。。", true);
                 timeCount = 3;
                 Logger.e("Discover GATT Services" + device.getAddress());
-            } else if (BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action)) {
+            } else if (SampleGattAttributes.ACTION_DATA_AVAILABLE.equals(action)) {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        byte[] data = intent.getByteArrayExtra(BluetoothLeService.EXTRA_DATA);
+                        byte[] data = intent.getByteArrayExtra(SampleGattAttributes.EXTRA_DATA);
                         BluetoothDevice device = intent.getParcelableExtra("DEVICE_ADDRESS");
                         //通讯成功 返回OK
                         if (data != null) {
@@ -409,11 +410,11 @@ public class ConfigDeviceTest extends ActionBarActivity implements View.OnClickL
 
     private static IntentFilter makeGattUpdateIntentFilter() {
         final IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(BluetoothLeService.ACTION_GATT_CONNECTED);
-        intentFilter.addAction(BluetoothLeService.ACTION_GATT_DISCONNECTED);
-        intentFilter.addAction(BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED);
-        intentFilter.addAction(BluetoothLeService.ACTION_DATA_AVAILABLE);
-        intentFilter.addAction(BluetoothLeService.ACTION_NAME_RSSI);
+        intentFilter.addAction(SampleGattAttributes.ACTION_GATT_CONNECTED);
+        intentFilter.addAction(SampleGattAttributes.ACTION_GATT_DISCONNECTED);
+        intentFilter.addAction(SampleGattAttributes.ACTION_GATT_SERVICES_DISCOVERED);
+        intentFilter.addAction(SampleGattAttributes.ACTION_DATA_AVAILABLE);
+        intentFilter.addAction(SampleGattAttributes.ACTION_NAME_RSSI);
         intentFilter.addAction(BluetoothDevice.ACTION_UUID);
         return intentFilter;
     }

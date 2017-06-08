@@ -14,15 +14,16 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.sid_fu.blecentral.App;
 import com.example.sid_fu.blecentral.R;
-import com.example.sid_fu.blecentral.ui.activity.MainFrameForStartServiceActivity;
 import com.example.sid_fu.blecentral.db.entity.RecordData;
 import com.example.sid_fu.blecentral.ui.BleData;
+import com.example.sid_fu.blecentral.ui.activity.MainFrameForStartServiceActivity;
 import com.example.sid_fu.blecentral.utils.Constants;
 import com.example.sid_fu.blecentral.utils.DimenUtil;
 import com.example.sid_fu.blecentral.utils.Logger;
@@ -77,6 +78,7 @@ public abstract class BaseFragment extends Fragment{
     private FrameLayout toprightF;
     private FrameLayout bottomleftF;
     private FrameLayout bottomrightF;
+    private AlphaAnimation alphaAnimation;
 //    private Map<View,int[]> recycleViews = new HashMap<>();
 
     protected abstract void initData();
@@ -589,6 +591,9 @@ public abstract class BaseFragment extends Fragment{
                 mActivity.manageDevice.rightF_notify = true;
                 SoundPlayUtils.play(4);
                 VibratorUtil.Vibrate(getActivity(), vibratorTime);   //震动100ms
+//                startAlphaAnimation(toprightF);
+            }else {
+//                cancelAlphaAnimation(toprightF);
             }
             topright_voltage.setImageDrawable(getResources().getDrawable(R.mipmap.pm_warning));
         }
@@ -686,5 +691,34 @@ public abstract class BaseFragment extends Fragment{
         getActivity().unregisterReceiver(mHomeKeyEventReceiver);
         System.gc();
         Logger.e("onDestroy");
+    }
+
+    public void startAlphaAnimation(FrameLayout bg){
+        /**
+         * @param fromAlpha 开始的透明度，取值是0.0f~1.0f，0.0f表示完全透明， 1.0f表示和原来一样
+         * @param toAlpha 结束的透明度，同上
+         */
+        if(alphaAnimation==null)
+            alphaAnimation = new AlphaAnimation(1.0f, 0.2f);
+        //设置动画持续时长
+        alphaAnimation.setDuration(3000);
+        //设置动画结束之后的状态是否是动画的最终状态，true，表示是保持动画结束时的最终状态
+        alphaAnimation.setFillAfter(true);
+        //设置动画结束之后的状态是否是动画开始时的状态，true，表示是保持动画开始时的状态
+        alphaAnimation.setFillBefore(true);
+        //设置动画的重复模式：反转REVERSE和重新开始RESTART
+        alphaAnimation.setRepeatMode(AlphaAnimation.REVERSE);
+        //设置动画播放次数
+        alphaAnimation.setRepeatCount(AlphaAnimation.INFINITE);
+        //开始动画
+        bg.startAnimation(alphaAnimation);
+
+    }
+    private void cancelAlphaAnimation(FrameLayout bg){
+        //清除动画
+        bg.clearAnimation();
+        //同样cancel()也能取消掉动画
+        alphaAnimation.cancel();
+        alphaAnimation = null;
     }
 }

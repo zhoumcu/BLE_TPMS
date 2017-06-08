@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.util.Log;
 
 import com.example.sid_fu.blecentral.ui.activity.MainFrameForStartServiceActivity;
-import com.example.sid_fu.blecentral.ui.activity.HomeActivity;
+import com.example.sid_fu.blecentral.HomeActivity;
 import com.example.sid_fu.blecentral.utils.SystemUtils;
 
 /**

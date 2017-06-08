@@ -34,13 +34,15 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.example.sid_fu.blecentral.App;
-import com.example.sid_fu.blecentral.service.BluetoothLeService;
-import com.example.sid_fu.blecentral.service.BluetoothLeStartService;
+import com.example.sid_fu.blecentral.R;
+import com.example.sid_fu.blecentral.db.entity.Device;
 import com.example.sid_fu.blecentral.model.ManageDevice;
 import com.example.sid_fu.blecentral.model.MyBluetoothDevice;
-import com.example.sid_fu.blecentral.R;
+import com.example.sid_fu.blecentral.model.SampleGattAttributes;
+import com.example.sid_fu.blecentral.service.BluetoothLeStartService;
 import com.example.sid_fu.blecentral.service.ShakeListener;
-import com.example.sid_fu.blecentral.db.entity.Device;
+import com.example.sid_fu.blecentral.ui.activity.base.BaseActionBarActivity;
+import com.example.sid_fu.blecentral.ui.activity.car.DeviceDetailActivity;
 import com.example.sid_fu.blecentral.ui.frame.BundDeviceFragment;
 import com.example.sid_fu.blecentral.ui.frame.ChangeDeviceFragment;
 import com.example.sid_fu.blecentral.ui.frame.InsteadDeviceFragment;
@@ -102,12 +104,6 @@ public class MainFrameForStartServiceActivity extends BaseActionBarActivity impl
         mContext =MainFrameForStartServiceActivity.this;
         deviceId = getIntent().getExtras().getInt("DB_ID");
         Logger.e("onStartCommand"+deviceId);
-//        SharedPreferences.getInstance().putInt(Constants.LAST_ID, deviceId);
-//        Intent intent = new Intent(BluetoothLeStartService.ACTION_REFREASH_DEVICE);
-//        Bundle mBundle = new Bundle();
-//        mBundle.putInt("id", deviceId);
-//        intent.putExtras(mBundle);
-//        sendBroadcast(intent);
         initUI();
         intiShake();
         initData();
@@ -265,11 +261,11 @@ public class MainFrameForStartServiceActivity extends BaseActionBarActivity impl
                     if(isNull(device,manageDevice.getLeftBDevice())||isNull(device,manageDevice.getLeftFDevice())||isNull(device,manageDevice.getRightBDevice())
                         ||isNull(device,manageDevice.getRightFDevice())) {
                         bleIsFind(device);
-                        broadcastUpdate(BluetoothLeService.ACTION_CHANGE_RESULT,device,rssi,scanRecord);
+                        broadcastUpdate(SampleGattAttributes.ACTION_CHANGE_RESULT,device,rssi,scanRecord);
                     }
                     if(!isNull(device,manageDevice.getLeftBDevice())||!isNull(device,manageDevice.getLeftFDevice())||!isNull(device,manageDevice.getRightBDevice())
                             ||!isNull(device,manageDevice.getRightFDevice())) {
-                        broadcastUpdate(BluetoothLeService.ACTION_RETURN_OK,device,rssi,scanRecord);
+                        broadcastUpdate(SampleGattAttributes.ACTION_RETURN_OK,device,rssi,scanRecord);
                     }
                     //scanBleForResult(device);
                     // 发现小米3必须加以下的这3个语句，否则不更新数据，而三星的机子s3则没有这个问题
@@ -290,8 +286,8 @@ public class MainFrameForStartServiceActivity extends BaseActionBarActivity impl
     }
     private static IntentFilter makeGattUpdateIntentFilter() {
         final IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(BluetoothLeStartService.ACTION_GATT_DISCONNECTED);
-        intentFilter.addAction(BluetoothLeStartService.SCAN_FOR_RESULT);
+        intentFilter.addAction(SampleGattAttributes.ACTION_GATT_DISCONNECTED);
+        intentFilter.addAction(SampleGattAttributes.SCAN_FOR_RESULT);
         return intentFilter;
     }
     // Handles various events fired by the Service.
@@ -303,12 +299,12 @@ public class MainFrameForStartServiceActivity extends BaseActionBarActivity impl
         @Override
         public void onReceive(Context context, final Intent intent) {
             String action = intent.getAction();
-            if (BluetoothLeStartService.ACTION_GATT_DISCONNECTED.equals(action)) {
+            if (SampleGattAttributes.ACTION_GATT_DISCONNECTED.equals(action)) {
                 BluetoothDevice device = intent.getParcelableExtra("DEVICE_ADDRESS");
                 //断开
                 onFailed(device);
                 Logger.i("Disconneted GATT Services" + device.getAddress());
-            } else if (BluetoothLeStartService.SCAN_FOR_RESULT.equals(action)) {
+            } else if (SampleGattAttributes.SCAN_FOR_RESULT.equals(action)) {
                 BluetoothDevice device = intent.getParcelableExtra("DEVICE_ADDRESS");
                 int rssi = intent.getIntExtra("SCAN_RSSI",0);
                 byte[] scanRecord = intent.getByteArrayExtra("SCAN_RECORD");
@@ -317,7 +313,7 @@ public class MainFrameForStartServiceActivity extends BaseActionBarActivity impl
                 if(isNull(device,manageDevice.getLeftBDevice())||isNull(device,manageDevice.getLeftFDevice())||isNull(device,manageDevice.getRightBDevice())
                         ||isNull(device,manageDevice.getRightFDevice())) {
                     bleIsFind(device);
-                    broadcastUpdate(BluetoothLeService.ACTION_CHANGE_RESULT,device,rssi,scanRecord);
+                    broadcastUpdate(SampleGattAttributes.ACTION_CHANGE_RESULT,device,rssi,scanRecord);
                 }
 //                if(!isNull(device,manageDevice.getLeftBDevice())||!isNull(device,manageDevice.getLeftFDevice())||!isNull(device,manageDevice.getRightBDevice())
 //                        ||!isNull(device,manageDevice.getRightFDevice()))
@@ -518,13 +514,13 @@ public class MainFrameForStartServiceActivity extends BaseActionBarActivity impl
     public void startScan() {
 //        mBluetoothAdapter.stopLeScan(mLeScanCallback);
 //        mBluetoothAdapter.startLeScan(mLeScanCallback);
-        Intent intent = new Intent(BluetoothLeStartService.ACTION_START_SCAN);
+        Intent intent = new Intent(SampleGattAttributes.ACTION_START_SCAN);
         sendBroadcast(intent);
     }
     public void stopScan() {
         //App.getInstance().speak("正在关闭蓝牙设备");
 //        mBluetoothAdapter.stopLeScan(mLeScanCallback);
-        Intent intent = new Intent(BluetoothLeStartService.ACTION_STOP_SCAN);
+        Intent intent = new Intent(SampleGattAttributes.ACTION_STOP_SCAN);
         sendBroadcast(intent);
     }
 

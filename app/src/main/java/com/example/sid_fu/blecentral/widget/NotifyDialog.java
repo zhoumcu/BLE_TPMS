@@ -15,8 +15,8 @@ import android.widget.TextView;
 
 import com.example.sid_fu.blecentral.App;
 import com.example.sid_fu.blecentral.R;
-import com.example.sid_fu.blecentral.ui.activity.ConfigDevice;
-import com.example.sid_fu.blecentral.ui.activity.BaseActivity;
+import com.example.sid_fu.blecentral.ui.activity.setting.ConfigDeviceActivity;
+import com.example.sid_fu.blecentral.ui.activity.base.BaseActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -50,8 +50,8 @@ public class NotifyDialog extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.aty_notify_dialog);
         ButterKnife.bind(this);
-        String pairedOk = getIntent().getExtras().getString(ConfigDevice.PAIRED_OK);
-        boolean noneNext = getIntent().getExtras().getBoolean(ConfigDevice.NONE_NEXT);
+        String pairedOk = getIntent().getExtras().getString(ConfigDeviceActivity.PAIRED_OK);
+        boolean noneNext = getIntent().getExtras().getBoolean(ConfigDeviceActivity.NONE_NEXT);
         btnState.setText(pairedOk);
         if (pairedOk.equals("完成")) {
             onFinish();
@@ -64,8 +64,7 @@ public class NotifyDialog extends BaseActivity {
 
 //        tvNotify.setText("完成配置！");
     }
-    private void onFinish()
-    {
+    private void onFinish() {
         lnFinish.setVisibility(View.VISIBLE);
         btnNofinish.setVisibility(View.GONE);
         imgIcon.setImageDrawable(getResources().getDrawable(R.mipmap.b_right));

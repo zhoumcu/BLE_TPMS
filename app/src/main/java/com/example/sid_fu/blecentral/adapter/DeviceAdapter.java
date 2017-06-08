@@ -16,9 +16,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.sid_fu.blecentral.App;
-import com.example.sid_fu.blecentral.ui.activity.HomeActivity;
+import com.example.sid_fu.blecentral.HomeActivity;
 import com.example.sid_fu.blecentral.R;
-import com.example.sid_fu.blecentral.ui.activity.CarInfoDetailActivity;
+import com.example.sid_fu.blecentral.ui.activity.car.CarInfoDetailActivity;
 import com.example.sid_fu.blecentral.ui.activity.MainFrameForStartServiceActivity;
 import com.example.sid_fu.blecentral.db.entity.Device;
 import com.example.sid_fu.blecentral.utils.BitmapUtils;

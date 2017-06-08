@@ -22,21 +22,21 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.sid_fu.blecentral.App;
-import com.example.sid_fu.blecentral.service.BluetoothLeService;
-import com.example.sid_fu.blecentral.service.BluetoothLeStartService;
-import com.example.sid_fu.blecentral.model.ManageDevice;
-import com.example.sid_fu.blecentral.model.MyBluetoothDevice;
-import com.example.sid_fu.blecentral.widget.NotifyDialog;
-import com.example.sid_fu.blecentral.model.ParsedAd;
 import com.example.sid_fu.blecentral.R;
-import com.example.sid_fu.blecentral.ui.activity.ConfigDevice;
-import com.example.sid_fu.blecentral.ui.activity.MainFrameForStartServiceActivity;
 import com.example.sid_fu.blecentral.db.dao.DeviceDao;
 import com.example.sid_fu.blecentral.db.entity.Device;
+import com.example.sid_fu.blecentral.model.ManageDevice;
+import com.example.sid_fu.blecentral.model.MyBluetoothDevice;
+import com.example.sid_fu.blecentral.model.ParsedAd;
+import com.example.sid_fu.blecentral.model.SampleGattAttributes;
+import com.example.sid_fu.blecentral.service.BaseBluetoothLeService;
+import com.example.sid_fu.blecentral.ui.activity.setting.ConfigDeviceActivity;
+import com.example.sid_fu.blecentral.ui.activity.MainFrameForStartServiceActivity;
 import com.example.sid_fu.blecentral.utils.DataUtils;
 import com.example.sid_fu.blecentral.utils.DigitalTrans;
 import com.example.sid_fu.blecentral.utils.Logger;
 import com.example.sid_fu.blecentral.widget.LoadingDialog;
+import com.example.sid_fu.blecentral.widget.NotifyDialog;
 
 /**
  * Created by Administrator on 2016/6/6.
@@ -69,7 +69,7 @@ public class BundDeviceFragment extends BaseBleConnetFragment {
     private DeviceDao deviceDaoUtils;
     private Device deviceDao;
     private LoadingDialog loadDialog;
-    private BluetoothLeService mBluetoothLeService;
+    private BaseBluetoothLeService mBluetoothLeService;
 
     @Override
     public void onAttach(Activity activity) {
@@ -91,6 +91,7 @@ public class BundDeviceFragment extends BaseBleConnetFragment {
         initUI();
         initIsCofigBle();
         loadDialog = new LoadingDialog(getActivity());
+        loadDialog.setBackgroundColor();
     }
     @Override
     protected void initData() {
@@ -105,7 +106,7 @@ public class BundDeviceFragment extends BaseBleConnetFragment {
 
     @Override
     protected void initConfig() {
-        Intent gattServiceIntent = new Intent(getActivity(), BluetoothLeService.class);
+        Intent gattServiceIntent = new Intent(getActivity(), BaseBluetoothLeService.class);
         Logger.d("Try to bindService=" + getActivity().bindService(gattServiceIntent, mServiceConnection, getActivity().BIND_AUTO_CREATE));
     }
 
@@ -198,8 +199,8 @@ public class BundDeviceFragment extends BaseBleConnetFragment {
             if(msg.what==0) {
                 Intent it =new Intent(getActivity(),NotifyDialog.class);
                 it.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                it.putExtra(ConfigDevice.PAIRED_OK,"重试");
-                it.putExtra(ConfigDevice.NONE_NEXT,true);
+                it.putExtra(ConfigDeviceActivity.PAIRED_OK,"重试");
+                it.putExtra(ConfigDeviceActivity.NONE_NEXT,true);
                 startActivity(it);
                 stopScan();
                 timeout = true;
@@ -219,7 +220,7 @@ public class BundDeviceFragment extends BaseBleConnetFragment {
         //保存蓝牙mac地址
         deviceDaoUtils.update(state,mActivity.deviceId,null);
         if(device!=null)
-            broadcastUpdate(BluetoothLeService.ACTION_DISCONNECT_SCAN,device.getDevice());
+            broadcastUpdate(SampleGattAttributes.ACTION_DISCONNECT_SCAN,device.getDevice());
     }
     private void bundDevice(int states) {
         isRecevice = false;
@@ -240,17 +241,17 @@ public class BundDeviceFragment extends BaseBleConnetFragment {
         @Override
         public void onReceive(Context context, final Intent intent) {
             String action = intent.getAction();
-            if (BluetoothLeService.ACTION_GATT_CONNECTED.equals(action)) {
+            if (SampleGattAttributes.ACTION_GATT_CONNECTED.equals(action)) {
                 BluetoothDevice device = intent.getParcelableExtra("DEVICE_ADDRESS");
                 isTimeOut();
                 Logger.e("connected:"+device.getAddress());
-            } else if (BluetoothLeService.ACTION_GATT_DISCONNECTED.equals(action)) {
+            } else if (SampleGattAttributes.ACTION_GATT_DISCONNECTED.equals(action)) {
                 BluetoothDevice device = intent.getParcelableExtra("DEVICE_ADDRESS");
                 //断开
                 if(!isWrite)
                     mBluetoothLeService.connect(device.getAddress());
                 Logger.e("Disconneted GATT Services"+device.getAddress());
-            } else if (BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED.equals(action)) {
+            } else if (SampleGattAttributes.ACTION_GATT_SERVICES_DISCOVERED.equals(action)) {
                 BluetoothDevice device = intent.getParcelableExtra("DEVICE_ADDRESS");
                 if(isTimeOut()) return;
                 mHandler.postDelayed(new Runnable() {
@@ -262,11 +263,11 @@ public class BundDeviceFragment extends BaseBleConnetFragment {
                 if(!isWrite)
                     showDialog("正在配置传感器。。。",false);
                 Logger.e("Discover GATT Services"+device.getAddress()+"send:AT+USED=1");
-            }else if (BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action)) {
+            }else if (SampleGattAttributes.ACTION_DATA_AVAILABLE.equals(action)) {
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        byte[] data = intent.getByteArrayExtra(BluetoothLeService.EXTRA_DATA);
+                        byte[] data = intent.getByteArrayExtra(SampleGattAttributes.EXTRA_DATA);
                         BluetoothDevice device = intent.getParcelableExtra("DEVICE_ADDRESS");
                         //通讯成功 OK
                         if (data != null) {
@@ -278,7 +279,7 @@ public class BundDeviceFragment extends BaseBleConnetFragment {
                         }
                     }
                 });
-            } else if (BluetoothLeService.ACTION_RETURN_OK.equals(action)/*|| BluetoothLeStartService.SCAN_FOR_RESULT.equals(action)*/) {
+            } else if (SampleGattAttributes.ACTION_RETURN_OK.equals(action)/*|| BluetoothLeStartService.SCAN_FOR_RESULT.equals(action)*/) {
                 BluetoothDevice device = intent.getParcelableExtra("DEVICE_ADDRESS");
                 int rssi = intent.getIntExtra("RSSI",0);
                 byte[] scanRecord = intent.getByteArrayExtra("SCAN_RECORD");
@@ -324,14 +325,14 @@ public class BundDeviceFragment extends BaseBleConnetFragment {
     }
     private static IntentFilter makeGattUpdateIntentFilter() {
         final IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(BluetoothLeService.ACTION_RETURN_OK);
-        intentFilter.addAction(BluetoothLeService.ACTION_GATT_CONNECTED);
-        intentFilter.addAction(BluetoothLeService.ACTION_GATT_DISCONNECTED);
+        intentFilter.addAction(SampleGattAttributes.ACTION_RETURN_OK);
+        intentFilter.addAction(SampleGattAttributes.ACTION_GATT_CONNECTED);
+        intentFilter.addAction(SampleGattAttributes.ACTION_GATT_DISCONNECTED);
         intentFilter.addAction(NotifyDialog.ACTION_BTN_STATE);
         intentFilter.addAction(NotifyDialog.ACTION_BTN_NEXT);
-        intentFilter.addAction(BluetoothLeService.ACTION_DATA_AVAILABLE);
-        intentFilter.addAction(BluetoothLeStartService.SCAN_FOR_RESULT);
-        intentFilter.addAction(BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED);
+        intentFilter.addAction(SampleGattAttributes.ACTION_DATA_AVAILABLE);
+        intentFilter.addAction(SampleGattAttributes.SCAN_FOR_RESULT);
+        intentFilter.addAction(SampleGattAttributes.ACTION_GATT_SERVICES_DISCOVERED);
         return intentFilter;
     }
     private void bleIsFind(BluetoothDevice device, int rssi, byte[] data) {
@@ -377,8 +378,8 @@ public class BundDeviceFragment extends BaseBleConnetFragment {
         loadDialog.stopCount();
         Intent it =new Intent(getActivity(),NotifyDialog.class);
         it.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        it.putExtra(ConfigDevice.PAIRED_OK,"完成");
-        it.putExtra(ConfigDevice.NONE_NEXT,true);
+        it.putExtra(ConfigDeviceActivity.PAIRED_OK,"完成");
+        it.putExtra(ConfigDeviceActivity.NONE_NEXT,true);
         startActivity(it);
         currentBtn.setText(getResources().getString(R.string.unbund));
         currentBtn.setBackgroundResource(R.mipmap.unbund);
@@ -494,7 +495,7 @@ public class BundDeviceFragment extends BaseBleConnetFragment {
     private final ServiceConnection mServiceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder service) {
-            mBluetoothLeService = ((BluetoothLeService.LocalBinder) service).getService();
+            mBluetoothLeService = ((BaseBluetoothLeService.LocalBinder) service).getService();
             if (!mBluetoothLeService.initialize()) {
                 Log.e(TAG, "Unable to initialize Bluetooth");
                 getActivity().finish();

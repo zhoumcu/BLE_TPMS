@@ -28,8 +28,8 @@
         android:padding="10dp"
         android:layout_weight="1"
         android:layout_margin="5dp" />
-   <View
-      style="@style/divider_line_1dp_gray"/>
+    <View
+        style="@style/divider_line_1dp_gray"/>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -39,15 +39,15 @@
             android:id="@+id/ln_finish"
             android:orientation="horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_botton2_shape"
             android:gravity="center"
             android:visibility="gone"
             android:layout_weight="1">
 
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="完成，进行下一个配对"
                 android:id="@+id/btn_finish"
                 android:background="@null"
@@ -58,18 +58,20 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_weight="1"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
             android:id="@+id/btn_nofinish">
 
             <Button
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="重试"
                 android:textColor="@color/white"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/bg_botton_shape"
                 android:id="@+id/btn_state"
                 android:layout_weight="1"
                 />
@@ -78,7 +80,7 @@
             <Button
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="跳过"
                 android:background="@null"
                 android:id="@+id/btn_next"

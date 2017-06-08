@@ -37,12 +37,15 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.example.sid_fu.blecentral.App;
-import com.example.sid_fu.blecentral.service.BluetoothLeService;
+import com.example.sid_fu.blecentral.model.SampleGattAttributes;
+import com.example.sid_fu.blecentral.service.BaseBluetoothLeService;
 import com.example.sid_fu.blecentral.model.ManageDevice;
 import com.example.sid_fu.blecentral.model.MyBluetoothDevice;
 import com.example.sid_fu.blecentral.R;
 import com.example.sid_fu.blecentral.service.ShakeListener;
 import com.example.sid_fu.blecentral.db.entity.Device;
+import com.example.sid_fu.blecentral.ui.activity.base.BaseActionBarActivity;
+import com.example.sid_fu.blecentral.ui.activity.car.DeviceDetailActivity;
 import com.example.sid_fu.blecentral.ui.frame.BundDeviceFragment;
 import com.example.sid_fu.blecentral.ui.frame.ChangeDeviceFragment;
 import com.example.sid_fu.blecentral.ui.frame.InsteadDeviceFragment;
@@ -68,7 +71,7 @@ public class MainFrameActivity extends BaseActionBarActivity implements View.OnC
     // Stops scanning after 10 seconds.
     private static final long SCAN_PERIOD = 1000000;
 
-    public BluetoothLeService mBluetoothLeService = null;
+    public BaseBluetoothLeService mBluetoothLeService = null;
     public  BluetoothAdapter mBluetoothAdapter = null;
     private boolean mScanning;
 
@@ -179,7 +182,7 @@ public class MainFrameActivity extends BaseActionBarActivity implements View.OnC
                 }
             }
         };
-        Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
+        Intent gattServiceIntent = new Intent(this, BaseBluetoothLeService.class);
         Logger.d("Try to bindService=" + bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE));
 //        Intent musicServiceIntent = new Intent(this, BluetoothLeService.class);
 //        startService(musicServiceIntent);
@@ -379,15 +382,13 @@ public class MainFrameActivity extends BaseActionBarActivity implements View.OnC
                 public void run() {
                     Logger.e("发现新设备"+device.getAddress());
                     if(isNull(device,manageDevice.getLeftBDevice())||isNull(device,manageDevice.getLeftFDevice())||isNull(device,manageDevice.getRightBDevice())
-                        ||isNull(device,manageDevice.getRightFDevice()))
-                    {
+                        ||isNull(device,manageDevice.getRightFDevice())) {
                         bleIsFind(device);
-                        broadcastUpdate(BluetoothLeService.ACTION_CHANGE_RESULT,device,rssi,scanRecord);
+                        broadcastUpdate(SampleGattAttributes.ACTION_CHANGE_RESULT,device,rssi,scanRecord);
                     }
                     if(!isNull(device,manageDevice.getLeftBDevice())||!isNull(device,manageDevice.getLeftFDevice())||!isNull(device,manageDevice.getRightBDevice())
-                            ||!isNull(device,manageDevice.getRightFDevice()))
-                    {
-                        broadcastUpdate(BluetoothLeService.ACTION_RETURN_OK,device,rssi,scanRecord);
+                            ||!isNull(device,manageDevice.getRightFDevice())) {
+                        broadcastUpdate(SampleGattAttributes.ACTION_RETURN_OK,device,rssi,scanRecord);
                     }
                     //scanBleForResult(device);
                     // 发现小米3必须加以下的这3个语句，否则不更新数据，而三星的机子s3则没有这个问题
@@ -410,7 +411,7 @@ public class MainFrameActivity extends BaseActionBarActivity implements View.OnC
     }
     private static IntentFilter makeGattUpdateIntentFilter() {
         final IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(BluetoothLeService.ACTION_GATT_DISCONNECTED);
+        intentFilter.addAction(SampleGattAttributes.ACTION_GATT_DISCONNECTED);
 
         return intentFilter;
     }
@@ -423,7 +424,7 @@ public class MainFrameActivity extends BaseActionBarActivity implements View.OnC
         @Override
         public void onReceive(Context context, final Intent intent) {
             String action = intent.getAction();
-            if (BluetoothLeService.ACTION_GATT_DISCONNECTED.equals(action)) {
+            if (SampleGattAttributes.ACTION_GATT_DISCONNECTED.equals(action)) {
                 BluetoothDevice device = intent.getParcelableExtra("DEVICE_ADDRESS");
                 //断开
                 onFailed(device);
@@ -433,13 +434,10 @@ public class MainFrameActivity extends BaseActionBarActivity implements View.OnC
     };
 
     private void onFailed(BluetoothDevice device) {
-        if(isDisconnect)
-        {
+        if(isDisconnect) {
             Logger.e("主动退出应用");
-            for(MyBluetoothDevice ble : mDeviceList)
-            {
-                if(ble.getDevice().equals(device))
-                {
+            for(MyBluetoothDevice ble : mDeviceList) {
+                if(ble.getDevice().equals(device)) {
                     if(!ble.isSuccessComm())
                         count++;
                 }
@@ -453,39 +451,33 @@ public class MainFrameActivity extends BaseActionBarActivity implements View.OnC
         }
     }
 
-    private void initBlueDevice()
-    {
+    private void initBlueDevice() {
         manageDevice.setLeftFDevice(deviceDetails.getLeft_FD());
         manageDevice.setRightFDevice(deviceDetails.getRight_FD());
         manageDevice.setLeftBDevice(deviceDetails.getLeft_BD());
         manageDevice.setRightBDevice(deviceDetails.getRight_BD());
     }
-    private void bleIsFind(BluetoothDevice device)
-    {
+    private void bleIsFind(BluetoothDevice device) {
         String strAddress = device.getAddress();
-        if(strAddress.equals(manageDevice.getLeftBDevice()))
-        {
+        if(strAddress.equals(manageDevice.getLeftBDevice())) {
             if(leftBDevice==null)
                 leftBDevice = MyBluetoothDevice.getInstance(device, mBluetoothLeService);
             if(!ManageDevice.isEquals(mDeviceList,device))
                 mDeviceList.add(leftBDevice);
             leftBDevice.setBleScaned(true);
-        }else if(strAddress.equals(manageDevice.getRightBDevice()))
-        {
+        }else if(strAddress.equals(manageDevice.getRightBDevice())) {
             if(rightBDevice==null)
                 rightBDevice = MyBluetoothDevice.getInstance(device, mBluetoothLeService);
             if(!ManageDevice.isEquals(mDeviceList,device))
                 mDeviceList.add(rightBDevice);
             rightBDevice.setBleScaned(true);
-        }else if(strAddress.equals(manageDevice.getLeftFDevice()))
-        {
+        }else if(strAddress.equals(manageDevice.getLeftFDevice())) {
             if(leftFDevice==null)
                 leftFDevice = MyBluetoothDevice.getInstance(device, mBluetoothLeService);
             if(!ManageDevice.isEquals(mDeviceList,device))
                 mDeviceList.add(leftFDevice);
             leftFDevice.setBleScaned(true);
-        }else if(strAddress.equals(manageDevice.getRightFDevice()))
-        {
+        }else if(strAddress.equals(manageDevice.getRightFDevice())) {
             if(rightFDevice==null)
                 rightFDevice = MyBluetoothDevice.getInstance(device, mBluetoothLeService);
             if(!ManageDevice.isEquals(mDeviceList,device))
@@ -497,7 +489,7 @@ public class MainFrameActivity extends BaseActionBarActivity implements View.OnC
     private final ServiceConnection mServiceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder service) {
-            mBluetoothLeService = ((BluetoothLeService.LocalBinder) service).getService();
+            mBluetoothLeService = ((BaseBluetoothLeService.LocalBinder) service).getService();
             if (!mBluetoothLeService.initialize()) {
                 Log.e(TAG, "Unable to initialize Bluetooth");
                 finish();
@@ -562,8 +554,7 @@ public class MainFrameActivity extends BaseActionBarActivity implements View.OnC
 
     @Override
     public void onClick(View view) {
-        switch (view.getId())
-        {
+        switch (view.getId()) {
             case R.id.back:
                 exit();
                 break;
@@ -667,8 +658,7 @@ public class MainFrameActivity extends BaseActionBarActivity implements View.OnC
         showFragment();
         Logger.e("切换："+index);
     }
-    private void showNext(Class cl)
-    {
+    private void showNext(Class cl) {
         Intent intent = new Intent();
         intent.setClass(MainFrameActivity.this,cl);
         Bundle mBundle = new Bundle();
@@ -676,13 +666,11 @@ public class MainFrameActivity extends BaseActionBarActivity implements View.OnC
         intent.putExtras(mBundle);
         startActivity(intent);
     }
-    public void startScan()
-    {
+    public void startScan() {
         mBluetoothAdapter.stopLeScan(mLeScanCallback);
         mBluetoothAdapter.startLeScan(mLeScanCallback);
     }
-    public void stopScan()
-    {
+    public void stopScan() {
         //App.getInstance().speak("正在关闭蓝牙设备");
         mBluetoothAdapter.stopLeScan(mLeScanCallback);
     }
@@ -726,19 +714,16 @@ public class MainFrameActivity extends BaseActionBarActivity implements View.OnC
      * 检测四个模块是否断开，彻底断开后退出
      */
     private void exit() {
-        if(currIndex==0)
-        {
+        if(currIndex==0) {
             isQuiting = true;
             finish();
-        }else
-        {
+        }else {
             refreashData();
             switchFragment(0);
             startScan();
         }
     }
-    private void refreashData()
-    {
+    private void refreashData() {
         //刷新数据库
         deviceDetails = App.getDeviceDao().get(deviceId);
         initBlueDevice();
@@ -756,8 +741,7 @@ public class MainFrameActivity extends BaseActionBarActivity implements View.OnC
     private float timestamp;
     private float angle[] =new float[3];
 
-    private void initSensor()
-    {
+    private void initSensor() {
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         magneticSensor =sensorManager
                 .getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
@@ -779,8 +763,7 @@ public class MainFrameActivity extends BaseActionBarActivity implements View.OnC
 //坐标轴都是手机从左侧到右侧的水平方向为x轴正向，从手机下部到上部为y轴正向，垂直于手机屏幕向上为z轴正向
     @Override
     public void onSensorChanged(SensorEvent event) {
-        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER)
-        {
+        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
             // x,y,z分别存储坐标轴x,y,z上的加速度
             float x = event.values[0];
             float y = event.values[1];

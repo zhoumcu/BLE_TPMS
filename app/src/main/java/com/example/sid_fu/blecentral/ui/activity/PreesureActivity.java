@@ -15,10 +15,9 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
-import com.example.sid_fu.blecentral.service.BluetoothLeService;
 import com.example.sid_fu.blecentral.R;
-import com.example.sid_fu.blecentral.ui.frame.TitleBarActivity;
+import com.example.sid_fu.blecentral.model.SampleGattAttributes;
+import com.example.sid_fu.blecentral.ui.activity.base.TitleBarActivity;
 import com.example.sid_fu.blecentral.utils.ToastUtil;
 import com.example.sid_fu.blecentral.widget.TimerDialog;
 import com.example.sid_fu.blecentral.widget.WiperSwitch;
@@ -454,10 +453,10 @@ public class PreesureActivity extends TitleBarActivity {
     }
     private static IntentFilter makeGattUpdateIntentFilter() {
         final IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(BluetoothLeService.ACTION_GATT_CONNECTED);
-        intentFilter.addAction(BluetoothLeService.ACTION_GATT_DISCONNECTED);
-        intentFilter.addAction(BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED);
-        intentFilter.addAction(BluetoothLeService.ACTION_DATA_AVAILABLE);
+        intentFilter.addAction(SampleGattAttributes.ACTION_GATT_CONNECTED);
+        intentFilter.addAction(SampleGattAttributes.ACTION_GATT_DISCONNECTED);
+        intentFilter.addAction(SampleGattAttributes.ACTION_GATT_SERVICES_DISCOVERED);
+        intentFilter.addAction(SampleGattAttributes.ACTION_DATA_AVAILABLE);
         intentFilter.addAction(BluetoothDevice.ACTION_UUID);
         return intentFilter;
     }

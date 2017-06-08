@@ -24,12 +24,15 @@ import rx.schedulers.Schedulers;
 public class DataHelper {
 
     public DataHelper() {
+
     }
+
     public static BleData getScanData(byte[] scanRecord){
         Logger.e(":"+ DataUtils.bytesToHexString(scanRecord));
         byte[] data = DataUtils.parseData(scanRecord).datas;
         return getData(data);
     }
+
     public static BleData getData(byte[] data){
         float voltage = 0.00f,press = 0, temp =0;
         int temp1 = 0,state = 0,rssi = 0;
