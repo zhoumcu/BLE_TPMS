@@ -276,7 +276,7 @@ public abstract class BaseFragment extends Fragment{
         if(context.isFinishing()) return;
         switch (state) {
             case 1001:
-                topleftF.setBackground(getResources().getDrawable(R.drawable.day_bg_normal_selector));
+                topleftF.setBackground(getResources().getDrawable(R.drawable.day_bg_link_left1_selector));
                 topleft_voltage.setImageDrawable(null);
                 topleft_preesure.setText(getActivity().getString(R.string.defaulttemp));
                 topleft_temp.setText(getActivity().getString(R.string.defaulttemp));
@@ -285,7 +285,7 @@ public abstract class BaseFragment extends Fragment{
                 App.getInstance().dbHelper.update(mActivity.deviceId,mActivity.manageDevice.getLeftFDevice(),recordData);
                 break;
             case 1002:
-                toprightF.setBackground(getResources().getDrawable(R.drawable.day_bg_normal_selector));
+                toprightF.setBackground(getResources().getDrawable(R.drawable.day_bg_link_left1_selector));
                 topright_voltage.setImageDrawable(null);
                 topright_preesure.setText(getActivity().getString(R.string.defaulttemp));
                 topright_temp.setText(getActivity().getString(R.string.defaulttemp));
@@ -294,7 +294,7 @@ public abstract class BaseFragment extends Fragment{
                 App.getInstance().dbHelper.update(mActivity.deviceId,mActivity.manageDevice.getRightFDevice(),recordData);
                 break;
             case 1003:
-                bottomleftF.setBackground(getResources().getDrawable(R.drawable.day_bg_normal_selector));
+                bottomleftF.setBackground(getResources().getDrawable(R.drawable.day_bg_link_left1_selector));
                 bottomleft_voltage.setImageDrawable(null);
                 bottomleft_preesure.setText(getActivity().getString(R.string.defaulttemp));
                 bottomleft_temp.setText(getActivity().getString(R.string.defaulttemp));
@@ -303,7 +303,7 @@ public abstract class BaseFragment extends Fragment{
                 App.getInstance().dbHelper.update(mActivity.deviceId,mActivity.manageDevice.getLeftBDevice(),recordData);
                 break;
             case 1004:
-                bottomrightF.setBackground(getResources().getDrawable(R.drawable.day_bg_normal_selector));
+                bottomrightF.setBackground(getResources().getDrawable(R.drawable.day_bg_link_left1_selector));
                 bottomright_voltage.setImageDrawable(null);
                 bottomright_preesure.setText(getActivity().getString(R.string.defaulttemp));
                 bottomright_temp.setText(getActivity().getString(R.string.defaulttemp));
