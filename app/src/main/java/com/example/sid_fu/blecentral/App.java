@@ -46,6 +46,7 @@ public class App extends Application implements TextToSpeech.OnInitListener,Thre
     private long seperateTime = 2000;
     public boolean isFirst = false;
     public DbHelper dbHelper;
+    private Context mContext;
 
     public static DeviceDao getDeviceDao() {
         return deviceDao;
@@ -68,6 +69,7 @@ public class App extends Application implements TextToSpeech.OnInitListener,Thre
     @Override
     public void onCreate() {
         super.onCreate();
+        mContext = getApplicationContext();
         deviceDao= new DeviceDao(this);
         MobclickAgent.setScenarioType(this, MobclickAgent.EScenarioType.E_UM_NORMAL);
         PushAgent mPushAgent = PushAgent.getInstance(this);
@@ -81,6 +83,8 @@ public class App extends Application implements TextToSpeech.OnInitListener,Thre
         //第一：默认初始化
         Bmob.initialize(this, "96fac7e033ee07d482b599280dd49f8c");
         BmobUpdateAgent.initAppVersion();
+        //设置Thread Exception Handler
+        Thread.setDefaultUncaughtExceptionHandler(this);
     }
     public void add(String str) {
         textToSpeech.addSpeech(str,"test");
@@ -314,10 +318,15 @@ public class App extends Application implements TextToSpeech.OnInitListener,Thre
 
     @Override
     public void uncaughtException(Thread thread, Throwable ex) {
-        System.out.println("uncaughtException");
-        System.exit(0);
-        Intent intent = new Intent(this, HomeActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("uncaughtException");
+                Intent intent = new Intent(mContext, HomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                android.os.Process.killProcess(android.os.Process.myPid());
+            }
+        }).start();
     }
 }

@@ -77,6 +77,6 @@ public class BaseActionBarActivity extends ActionBarActivity {
     public void addFragment(int res, Fragment fragment) {
         FragmentTransaction fragmentTransaction = getFragmentTransaction();
         fragmentTransaction.add(res, fragment);
-        fragmentTransaction.commit();
+        fragmentTransaction.commitAllowingStateLoss();
     }
 }

@@ -135,8 +135,7 @@ public class MainFrameForStartServiceActivity extends BaseActionBarActivity impl
     }
 
     private void initConfig() {
-        mHandler = new Handler()
-        {
+        mHandler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);

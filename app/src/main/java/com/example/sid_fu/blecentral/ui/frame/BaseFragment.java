@@ -323,7 +323,7 @@ public abstract class BaseFragment extends Fragment{
         if(context.isFinishing()) return;
         switch (state) {
             case 1001:
-                topleft_voltage.setImageDrawable(getResources().getDrawable(R.mipmap.pm_battle_off));
+//                topleft_voltage.setImageDrawable(getResources().getDrawable(R.mipmap.pm_battle_off));
                 topleftF.setBackground(getResources().getDrawable(R.drawable.pmlink_off_left1_selctor));
                 topleft_temp.setText(getActivity().getString(R.string.defaulttemp));
                 topleft_preesure.setText(getActivity().getString(R.string.defaulttemp));
@@ -333,7 +333,7 @@ public abstract class BaseFragment extends Fragment{
 
                 break;
             case 1002:
-                topright_voltage.setImageDrawable(getResources().getDrawable(R.mipmap.pm_battle_off));
+//                topright_voltage.setImageDrawable(getResources().getDrawable(R.mipmap.pm_battle_off));
                 toprightF.setBackground(getResources().getDrawable(R.drawable.pmlink_off_left1_selctor));
                 topright_temp.setText(getActivity().getString(R.string.defaulttemp));
                 topright_preesure.setText(getActivity().getString(R.string.defaulttemp));
@@ -345,7 +345,7 @@ public abstract class BaseFragment extends Fragment{
                 break;
             case 1003:
                 bottomleftF.setBackground(getResources().getDrawable(R.drawable.pmlink_off_left1_selctor));
-                bottomleft_voltage.setImageDrawable(getResources().getDrawable(R.mipmap.pm_battle_off));
+//                bottomleft_voltage.setImageDrawable(getResources().getDrawable(R.mipmap.pm_battle_off));
                 bottomleft_preesure.setText(getActivity().getString(R.string.defaulttemp));
                 bottomleft_temp.setText(getActivity().getString(R.string.defaulttemp));
                 bottomleft_releat.setText("");
@@ -356,7 +356,7 @@ public abstract class BaseFragment extends Fragment{
                 break;
             case 1004:
                 bottomrightF.setBackground(getResources().getDrawable(R.drawable.pmlink_off_left1_selctor));
-                bottomright_voltage.setImageDrawable(getResources().getDrawable(R.mipmap.pm_battle_off));
+//                bottomright_voltage.setImageDrawable(getResources().getDrawable(R.mipmap.pm_battle_off));
                 bottomright_preesure.setText(getActivity().getString(R.string.defaulttemp));
                 bottomright_temp.setText(getActivity().getString(R.string.defaulttemp));
                 bottomright_releat.setText("");
