@@ -7,6 +7,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 
+import com.example.sid_fu.blecentral.R;
+import com.example.sid_fu.blecentral.utils.Constants;
 import com.example.sid_fu.blecentral.utils.SharedPreferences;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.message.PushAgent;
@@ -21,19 +23,6 @@ public class BaseActionBarActivity extends ActionBarActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         PushAgent.getInstance(this).onAppStart();
-        //        if(SharedPreferences.getInstance().getString(Constants.LANDORPORT,Constants.DEFIED).equals("横屏"))
-//        {
-//            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);//设置成全屏模式
-//            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);//强制为横屏
-//        }else{
-//            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//竖屏
-//        }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-//        SharedPreferences.getInstance().putBoolean("isAppOnForeground",true);
     }
 
     public void onResume() {
@@ -44,7 +33,6 @@ public class BaseActionBarActivity extends ActionBarActivity {
     }
     public void onPause() {
         super.onPause();
-//        SharedPreferences.getInstance().putBoolean("isAppOnForeground",false);
         MobclickAgent.onPageEnd("SplashScreen"); // （仅有Activity的应用中SDK自动调用，不需要单独写）保证 onPageEnd 在onPause 之前调用,因为 onPause 中会保存信息。"SplashScreen"为页面名称，可自定义
         MobclickAgent.onPause(this);
     }
@@ -78,5 +66,16 @@ public class BaseActionBarActivity extends ActionBarActivity {
         FragmentTransaction fragmentTransaction = getFragmentTransaction();
         fragmentTransaction.add(res, fragment);
         fragmentTransaction.commitAllowingStateLoss();
+    }
+
+    /**
+     * 切换主题
+     */
+    protected void changeThemeWithColorful() {
+        if (!SharedPreferences.getInstance().getBoolean(Constants.DAY_NIGHT,false)) {
+            setTheme(R.style.DayTheme);
+        } else {
+            setTheme(R.style.NightTheme);
+        }
     }
 }

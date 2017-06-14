@@ -73,7 +73,7 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
 
         </activity>
-        <activity android:name=".ui.activity.MainFrameForStartServiceActivity"
+        <activity android:name=".MainActivity"
             android:uiOptions="splitActionBarWhenNarrow"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="sensor"

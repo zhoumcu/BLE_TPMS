@@ -19,7 +19,7 @@ import com.example.sid_fu.blecentral.App;
 import com.example.sid_fu.blecentral.HomeActivity;
 import com.example.sid_fu.blecentral.R;
 import com.example.sid_fu.blecentral.ui.activity.car.CarInfoDetailActivity;
-import com.example.sid_fu.blecentral.ui.activity.MainFrameForStartServiceActivity;
+import com.example.sid_fu.blecentral.MainActivity;
 import com.example.sid_fu.blecentral.db.entity.Device;
 import com.example.sid_fu.blecentral.utils.BitmapUtils;
 import com.example.sid_fu.blecentral.utils.Logger;
@@ -218,7 +218,7 @@ public class DeviceAdapter extends BaseAdapter {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.setClass(mContext, MainFrameForStartServiceActivity.class);
+                intent.setClass(mContext, MainActivity.class);
                 Bundle mBundle = new Bundle();
                 mBundle.putSerializable("DB_ARTICLES", cList.get(position));
                 mBundle.putInt("DB_ID", cList.get(position).getId());

@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import com.example.sid_fu.blecentral.ui.activity.MainFrameForStartServiceActivity;
+import com.example.sid_fu.blecentral.MainActivity;
 import com.example.sid_fu.blecentral.HomeActivity;
 import com.example.sid_fu.blecentral.utils.SystemUtils;
 
@@ -29,7 +29,7 @@ public class NotificationReceiver extends BroadcastReceiver {
             //如果Task栈不存在MainActivity实例，则在栈顶创建
             mainIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-            Intent detailIntent = new Intent(context, MainFrameForStartServiceActivity.class);
+            Intent detailIntent = new Intent(context, MainActivity.class);
             detailIntent.putExtra("DB_ID", intent.getExtras().getInt("id"));
             detailIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             Intent[] intents = {mainIntent, detailIntent};

@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.example.sid_fu.blecentral.App;
 import com.example.sid_fu.blecentral.model.MyBluetoothDevice;
 import com.example.sid_fu.blecentral.R;
-import com.example.sid_fu.blecentral.ui.activity.MainFrameForStartServiceActivity;
+import com.example.sid_fu.blecentral.MainActivity;
 import com.example.sid_fu.blecentral.db.dao.DeviceDao;
 import com.example.sid_fu.blecentral.utils.Constants;
 import com.example.sid_fu.blecentral.utils.ToastUtil;
@@ -22,7 +22,7 @@ import com.example.sid_fu.blecentral.utils.ToastUtil;
  * Created by Administrator on 2016/6/6.
  */
 public class ChangeDeviceFragment extends Fragment implements View.OnClickListener{
-    private MainFrameForStartServiceActivity mActivity;
+    private MainActivity mActivity;
     private TextView editConfig;
     private TextView topleftAdjust;
     private TextView toprightAdjust;
@@ -41,7 +41,7 @@ public class ChangeDeviceFragment extends Fragment implements View.OnClickListen
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        mActivity = (MainFrameForStartServiceActivity) activity;
+        mActivity = (MainActivity) activity;
     }
 
     @Override

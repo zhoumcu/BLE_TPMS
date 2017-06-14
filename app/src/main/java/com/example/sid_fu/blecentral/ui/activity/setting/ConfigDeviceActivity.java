@@ -29,6 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sid_fu.blecentral.App;
+import com.example.sid_fu.blecentral.HomeActivity;
 import com.example.sid_fu.blecentral.R;
 import com.example.sid_fu.blecentral.db.dao.UserDao;
 import com.example.sid_fu.blecentral.db.entity.Device;
@@ -37,14 +38,12 @@ import com.example.sid_fu.blecentral.model.ManageDevice;
 import com.example.sid_fu.blecentral.model.ParsedAd;
 import com.example.sid_fu.blecentral.model.SampleGattAttributes;
 import com.example.sid_fu.blecentral.service.BaseBluetoothLeService;
-import com.example.sid_fu.blecentral.HomeActivity;
 import com.example.sid_fu.blecentral.ui.activity.base.BaseActionBarActivity;
 import com.example.sid_fu.blecentral.utils.Constants;
 import com.example.sid_fu.blecentral.utils.DataUtils;
 import com.example.sid_fu.blecentral.utils.DigitalTrans;
 import com.example.sid_fu.blecentral.utils.Logger;
 import com.example.sid_fu.blecentral.utils.SharedPreferences;
-import com.example.sid_fu.blecentral.utils.SoundManager;
 import com.example.sid_fu.blecentral.widget.LoadingDialog;
 import com.example.sid_fu.blecentral.widget.NotifyDialog;
 
@@ -106,7 +105,6 @@ public class ConfigDeviceActivity extends BaseActionBarActivity implements View.
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.aty_config);
-        App.getInstance().playSigleSound(SoundManager.bund);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
          /*显示App icon左侧的back键*/
         ActionBar actionBar = getSupportActionBar();

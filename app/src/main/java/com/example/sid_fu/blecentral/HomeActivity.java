@@ -20,7 +20,6 @@ import com.example.sid_fu.blecentral.db.dao.DeviceDao;
 import com.example.sid_fu.blecentral.db.entity.Device;
 import com.example.sid_fu.blecentral.helper.HomeDataHelper;
 import com.example.sid_fu.blecentral.model.SampleGattAttributes;
-import com.example.sid_fu.blecentral.ui.activity.MainFrameForStartServiceActivity;
 import com.example.sid_fu.blecentral.ui.activity.base.BaseActivity;
 import com.example.sid_fu.blecentral.ui.activity.car.CarInfoDetailActivity;
 import com.example.sid_fu.blecentral.ui.activity.car.CarListViewActivity;
@@ -212,7 +211,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
                 Logger.e("onStartCommand put after"+SharedPreferences.getInstance().getInt(Constants.LAST_DEVICE_ID,0));
                 Intent intent1 = new Intent();
                 intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent1.setClass(mContext, MainFrameForStartServiceActivity.class);
+                intent1.setClass(mContext, MainActivity.class);
                 Bundle mBundle1 = new Bundle();
                 mBundle1.putSerializable("DB_ARTICLES", currentDevice);
                 mBundle1.putInt("DB_ID",currentDevice.getId());

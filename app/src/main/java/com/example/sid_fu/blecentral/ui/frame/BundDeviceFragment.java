@@ -31,7 +31,7 @@ import com.example.sid_fu.blecentral.model.ParsedAd;
 import com.example.sid_fu.blecentral.model.SampleGattAttributes;
 import com.example.sid_fu.blecentral.service.BaseBluetoothLeService;
 import com.example.sid_fu.blecentral.ui.activity.setting.ConfigDeviceActivity;
-import com.example.sid_fu.blecentral.ui.activity.MainFrameForStartServiceActivity;
+import com.example.sid_fu.blecentral.MainActivity;
 import com.example.sid_fu.blecentral.utils.DataUtils;
 import com.example.sid_fu.blecentral.utils.DigitalTrans;
 import com.example.sid_fu.blecentral.utils.Logger;
@@ -59,7 +59,7 @@ public class BundDeviceFragment extends BaseBleConnetFragment {
     private Button bottomright_ok;
     private Button bottomright_next;
 
-    private MainFrameForStartServiceActivity mActivity;
+    private MainActivity mActivity;
     public static int leftF = 1;
     public static int rightF = 2;
     public static int leftB = 3;
@@ -74,7 +74,7 @@ public class BundDeviceFragment extends BaseBleConnetFragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        mActivity = (MainFrameForStartServiceActivity) activity;
+        mActivity = (MainActivity) activity;
     }
 
     @Override

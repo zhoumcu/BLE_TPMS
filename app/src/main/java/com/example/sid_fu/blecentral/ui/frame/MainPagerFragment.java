@@ -14,7 +14,7 @@ import com.example.sid_fu.blecentral.db.entity.RecordData;
 import com.example.sid_fu.blecentral.helper.DataHelper;
 import com.example.sid_fu.blecentral.model.SampleGattAttributes;
 import com.example.sid_fu.blecentral.service.ScanDeviceRunnable;
-import com.example.sid_fu.blecentral.ui.BleData;
+import com.example.sid_fu.blecentral.model.BleData;
 import com.example.sid_fu.blecentral.utils.Constants;
 import com.example.sid_fu.blecentral.utils.DigitalTrans;
 import com.example.sid_fu.blecentral.utils.Logger;

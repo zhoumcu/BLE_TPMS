@@ -19,27 +19,16 @@
     import android.app.Notification;
     import android.app.NotificationManager;
     import android.app.PendingIntent;
-    import android.app.Service;
     import android.bluetooth.BluetoothAdapter;
     import android.bluetooth.BluetoothDevice;
-    import android.bluetooth.BluetoothGatt;
-    import android.bluetooth.BluetoothGattCallback;
-    import android.bluetooth.BluetoothGattCharacteristic;
-    import android.bluetooth.BluetoothGattDescriptor;
-    import android.bluetooth.BluetoothGattService;
-    import android.bluetooth.BluetoothManager;
-    import android.bluetooth.BluetoothProfile;
     import android.content.BroadcastReceiver;
     import android.content.Context;
     import android.content.Intent;
     import android.content.IntentFilter;
     import android.net.Uri;
-    import android.os.Binder;
     import android.os.Bundle;
     import android.os.Handler;
-    import android.os.IBinder;
     import android.provider.MediaStore;
-    import android.util.Log;
 
     import com.example.sid_fu.blecentral.App;
     import com.example.sid_fu.blecentral.R;
@@ -47,18 +36,14 @@
     import com.example.sid_fu.blecentral.widget.SystemDialog;
     import com.example.sid_fu.blecentral.db.entity.Device;
     import com.example.sid_fu.blecentral.helper.DataHelper;
-    import com.example.sid_fu.blecentral.model.MyBluetoothDevice;
-    import com.example.sid_fu.blecentral.ui.BleData;
+    import com.example.sid_fu.blecentral.model.BleData;
     import com.example.sid_fu.blecentral.utils.Constants;
     import com.example.sid_fu.blecentral.utils.Logger;
     import com.example.sid_fu.blecentral.utils.SharedPreferences;
     import com.example.sid_fu.blecentral.widget.NotificationReceiver;
 
-    import java.util.ArrayList;
-    import java.util.List;
     import java.util.Timer;
     import java.util.TimerTask;
-    import java.util.UUID;
 
     /**
     * Service for managing connection and data communication with a GATT server hosted on a

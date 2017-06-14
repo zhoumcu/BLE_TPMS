@@ -1,7 +1,7 @@
 package com.example.sid_fu.blecentral.helper;
 
 import com.example.sid_fu.blecentral.model.ManageDevice;
-import com.example.sid_fu.blecentral.ui.BleData;
+import com.example.sid_fu.blecentral.model.BleData;
 import com.example.sid_fu.blecentral.utils.Constants;
 import com.example.sid_fu.blecentral.utils.DataUtils;
 import com.example.sid_fu.blecentral.utils.DigitalTrans;

@@ -55,7 +55,6 @@ public class SoundPlayUtils {
                     mSoundPlayer.play(mKillSoundQueue.get(countNum-1), 1, 1, 0, 0, 1);
                     mKillSoundQueue.remove(countNum-1);
                 }
-                Logger.e("监听线程池！");
             }
         },100,2000);
         return soundPlayUtils;

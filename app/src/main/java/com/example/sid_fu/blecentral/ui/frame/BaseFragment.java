@@ -22,8 +22,8 @@ import android.widget.TextView;
 import com.example.sid_fu.blecentral.App;
 import com.example.sid_fu.blecentral.R;
 import com.example.sid_fu.blecentral.db.entity.RecordData;
-import com.example.sid_fu.blecentral.ui.BleData;
-import com.example.sid_fu.blecentral.ui.activity.MainFrameForStartServiceActivity;
+import com.example.sid_fu.blecentral.model.BleData;
+import com.example.sid_fu.blecentral.MainActivity;
 import com.example.sid_fu.blecentral.utils.Constants;
 import com.example.sid_fu.blecentral.utils.DimenUtil;
 import com.example.sid_fu.blecentral.utils.Logger;
@@ -69,7 +69,7 @@ public abstract class BaseFragment extends Fragment{
     private TextView topright_phone_rssi;
     private TextView bottomleft_phone_rssi;
     private TextView bottomright_phone_rssi;
-    public MainFrameForStartServiceActivity mActivity;
+    public MainActivity mActivity;
     private DecimalFormat df1;
     private DecimalFormat df;
     private FragmentActivity context;
@@ -90,7 +90,7 @@ public abstract class BaseFragment extends Fragment{
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try{
-            mActivity = (MainFrameForStartServiceActivity) activity;
+            mActivity = (MainActivity) activity;
         }catch (IllegalStateException e) {
             Logger.e(e.toString());
         }
@@ -99,9 +99,8 @@ public abstract class BaseFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frg_pressure, container, false);
-        //DimenUtil.changeViewSize(container,DimenUtil.getScreenWidth(),DimenUtil.getScreenHeight());
-        initConfig();
         context = getActivity();
+        initConfig();
         return view;
     }
 
